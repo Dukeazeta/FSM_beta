@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Cache DOM elements
     const navbarToggle = document.querySelector('.navbar-toggle');
-    const navbarLinks = document.querySelector('.navbar-links');
-    const navbarExtra = document.querySelector('.navbar-extra');
-    const navbarContainer = document.querySelector('.navbar-container');
+    const navbarMenu = document.querySelector('.navbar-menu');
     const slides = document.querySelectorAll('.hero-slide');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
     
     // State management
     let currentSlide = 0;
@@ -12,15 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Navbar functionality
     function toggleNavbar() {
-        navbarLinks.classList.toggle('active');
-        navbarExtra.classList.toggle('active');
+        navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
     }
 
     // Handle click outside navbar to close it
     document.addEventListener('click', (event) => {
-        const isClickInside = navbarContainer.contains(event.target);
-        const isNavbarActive = navbarLinks.classList.contains('active');
+        const isClickInside = navbarToggle.contains(event.target) || navbarMenu.contains(event.target);
+        const isNavbarActive = navbarMenu.classList.contains('active');
 
         if (!isClickInside && isNavbarActive) {
             toggleNavbar();
@@ -115,10 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initialize components
-    if (navbarToggle && navbarLinks && navbarExtra) {
+    if (navbarToggle && navbarMenu) {
         navbarToggle.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevent click from bubbling to document
             toggleNavbar();
+        });
+    }
+
+    if (prevButton && nextButton) {
+        prevButton.addEventListener('click', () => {
+            previousSlide();
+            resetSlideshow();
+        });
+
+        nextButton.addEventListener('click', () => {
+            nextSlide();
+            resetSlideshow();
         });
     }
 
@@ -147,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     block: 'start'
                 });
                 // Close mobile menu if open
-                if (navbarLinks.classList.contains('active')) {
+                if (navbarMenu.classList.contains('active')) {
                     toggleNavbar();
                 }
             }
