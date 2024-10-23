@@ -23,6 +23,9 @@ body {
     background-color: var(--clr-dark);
     font-size: clamp(1rem, 2vw, 1.125rem);
     padding-top: 60px; /* Match the navbar height */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -202,6 +205,10 @@ body {
     .navbar-toggle {
         display: block;
     }
+
+    .hero-carousel {
+        height: calc(100vh - 3rem);
+    }
 }
 
 /* Hero Section Styles */
@@ -211,16 +218,17 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1rem 1rem 1rem;
+    padding-top: 0rem; /* Reduced top padding */
     position: relative;
 }
 
 .hero-carousel {
     position: relative;
     width: 100%;
-    max-width: 1000px;
-    height: calc(100vh - 5rem);
+    max-width: 1200px;
+    height: calc(100vh - 1rem); /* Reduced spacing */
     overflow: hidden;
+    padding-top: 0rem;
 }
 
 .hero-slide {
@@ -240,20 +248,22 @@ body {
 .hero-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100%;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .live-indicator, .match-status, .article-author {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
-    font-weight:  600;
-    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: var(--clr-accent);
 }
 
 .live-indicator span, .match-status span, .article-author span {
@@ -277,35 +287,29 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .team {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
+    margin: 0 1rem;
 }
 
 .score-box {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    padding: 0.5rem 1.5rem;
-    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-.score {
-    font-size: 3rem;
+.score, .score-separator {
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--clr-accent);
 }
 
 .score-separator {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--clr-light);
     margin: 0 0.5rem;
 }
 
@@ -344,6 +348,7 @@ body {
 .cta-buttons {
     display: flex;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 .article-title {
@@ -639,8 +644,7 @@ body {
     }
 
     .team {
-        font-size: 1.5rem;
-        margin: 0.5rem 0;
+        font-size: 1.2rem;
     }
 
     .score-box {
@@ -648,7 +652,7 @@ body {
     }
 
     .score, .score-separator {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .match-time {
@@ -689,11 +693,11 @@ body {
     }
 
     .hero {
-        padding-top: 4rem;
+        padding-top: 2rem; /* Reduced padding for mobile */
     }
 
     .hero-carousel {
-        height: calc(100vh - 5rem);
+        height: calc(100vh - 3rem);
     }
 
     .team {
@@ -731,3 +735,121 @@ body {
     }
 }
 
+/* Footer Styles */
+.footer {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: var(--width-medium);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.social-icon {
+    color: var(--clr-light);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--clr-accent);
+}
+
+.footer-contact a {
+    color: var(--clr-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: var(--clr-accent);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .footer-copyright, .footer-social, .footer-contact {
+        margin-bottom: 0;
+    }
+}
+
+/* Ensure the footer stays at the bottom */
+main {
+    flex: 1;
+}
+
+/* Carousel Navigation Styles */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 10;
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--clr-light);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button i {
+    font-size: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-nav {
+        top: 40%; /* Adjust this value to move buttons higher or lower on mobile */
+    }
+
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .carousel-button i {
+        font-size: 1rem;
+    }
+}
