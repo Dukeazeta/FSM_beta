@@ -13,7 +13,7 @@
     --clr-slate600: #475569;
     --container-padding: clamp(1rem, 5vw, 3rem);
     --section-spacing: clamp(3rem, 10vw, 8rem);
-    --width-medium: 900px;
+    --width-medium: 1200px;
 }
 
 body {
@@ -22,6 +22,7 @@ body {
     color: var(--clr-light);
     background-color: var(--clr-dark);
     font-size: clamp(1rem, 2vw, 1.125rem);
+    padding-top: 60px; /* Match the navbar height */
 }
 
 .container {
@@ -34,115 +35,191 @@ body {
 /* Navbar Styles */
 .navbar {
     position: fixed;
-    top: 2.5rem; /* Moved up slightly */
+    top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 0.5rem;
+    background-color: var(--clr-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem var(--spacing-md);
     max-width: var(--width-medium);
     margin: 0 auto;
+    height: 60px; /* Set a fixed height for the navbar */
 }
 
 .navbar-logo {
-    flex: 1;
-}
-
-.navbar-logo a {
-    display: inline-block;
+    z-index: 2;
 }
 
 .logo-image {
-    height: 30px; /* Reduced from 40px */
+    height: 30px;
     width: auto;
-    vertical-align: middle;
-}
-
-/* For even smaller screens, we can reduce it further */
-@media screen and (max-width: 480px) {
-    .logo-image {
-        height: 24px;
-    }
 }
 
 .navbar-menu {
-    flex: 2;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .navbar-links {
     display: flex;
     list-style: none;
-    gap: 1rem;
-    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
-.navbar-links a, .navbar-extra a {
-    color: var(--clr-dark);
+.navbar-links li {
+    margin-left: 1.5rem;
+}
+
+.navbar-links a {
+    color: var(--clr-light);
     text-decoration: none;
-    font-weight: 700;
-    font-size: 0.8rem;
-    transition: color 0.3s ease;
+    font-family: var(--ff-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
 }
 
-.navbar-links a:hover, .navbar-extra a:hover {
+.navbar-links a:hover {
     color: var(--clr-accent);
-}
-
-.navbar-extra {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.8rem;
 }
 
 .navbar-toggle {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
-    background: transparent;
+    background: none;
     border: none;
     cursor: pointer;
+    z-index: 2;
+    padding: 10px;
 }
 
-.navbar-toggle span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--clr-dark);
-    transition: all 0.3s ease-in-out;
+/* Hamburger Menu Styles */
+.hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
 }
 
-/* Updated Hero Section Styles */
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 30px;
+    height: 3px;
+    background-color: var(--clr-light);
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+/* Hamburger Animation */
+.navbar-toggle.active .hamburger-inner {
+    transform: rotate(45deg);
+}
+
+.navbar-toggle.active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+}
+
+.navbar-toggle.active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+}
+
+/* Responsive Navbar Styles */
+@media (max-width: 768px) {
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--clr-dark);
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: right 0.3s ease;
+        padding-top: 60px; /* Match the navbar height */
+    }
+
+    .navbar-menu.active {
+        right: 0;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-top: 20px; /* Add some space after the navbar */
+    }
+
+    .navbar-links li {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-links a {
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1.1rem; /* Slightly larger font size for mobile */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar-links a:hover {
+        background-color: var(--clr-accent);
+        color: var(--clr-dark);
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+}
+
+/* Hero Section Styles */
 .hero {
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 1rem 1rem; /* Reduced top padding to move content up */
+    padding: 1rem 1rem 1rem;
+    position: relative;
 }
 
 .hero-carousel {
     position: relative;
     width: 100%;
     max-width: 1000px;
-    height: calc(100vh - 5rem); /* Adjust height based on viewport minus navbar */
+    height: calc(100vh - 5rem);
     overflow: hidden;
 }
 
@@ -172,8 +249,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem; /* Reduced from 0.9rem */
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight:  600;
     margin-bottom: 0.25rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -184,11 +261,16 @@ body {
 }
 
 .blink-dot {
-    width: 6px; /* Reduced from 8px */
-    height: 6px; /* Reduced from 8px */
+    width: 6px;
+    height: 6px;
     background-color: red;
     border-radius: 50%;
     animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .match-info {
@@ -217,13 +299,13 @@ body {
 .score {
     font-size: 3rem;
     font-weight: 700;
-    color: #ffff00;
+    color: var(--clr-accent);
 }
 
 .score-separator {
     font-size: 2rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--clr-light);
     margin: 0 0.5rem;
 }
 
@@ -236,8 +318,8 @@ body {
 .cta-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: #ffff00;
-    color: #000;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -246,13 +328,13 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #e6e600;
+    background-color: var(--clr-accent-dark);
 }
 
 .cta-button.secondary {
     background-color: transparent;
-    border: 2px solid #ffff00;
-    color: #ffff00;
+    border: 2px solid var(--clr-accent);
+    color: var(--clr-accent);
 }
 
 .cta-button.secondary:hover {
@@ -278,201 +360,37 @@ body {
 
 .carousel-controls {
     position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
-    gap: 1rem;
-    z-index: 2;
+    justify-content: space-between;
+    padding: 0 1rem;
 }
 
 .carousel-button {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .carousel-button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .carousel-button:focus {
-    outline: 2px solid #ffff00;
+    outline: 2px solid var(--clr-accent);
     outline-offset: 2px;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .navbar-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 1rem;
-        border-radius: 0 0 10px 10px;
-    }
-
-    .navbar-menu.active {
-        display: flex;
-    }
-
-    .navbar-links {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 1rem;
-    }
-
-    .navbar-links li {
-        margin: 0.5rem 0;
-    }
-
-    .navbar-extra {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar-toggle {
-        display: flex;
-    }
-
-    .hero-carousel {
-        height: 350px;
-    }
-
-    .match-info {
-        flex-direction: column;
-    }
-
-    .team {
-        font-size: 1.5rem;
-        margin: 0.5rem 0;
-    }
-
-    .score-box {
-        margin: 0.5rem 0;
-    }
-
-    .score, .score-separator {
-        font-size: 1.8rem;
-    }
-
-    .match-time {
-        font-size: 1rem;
-    }
-
-    .cta-button {
-        font-size: 0.9rem;
-        padding: 0.6rem 1.2rem;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .article-title {
-        font-size: 1.8rem;
-    }
-
-    .article-excerpt {
-        font-size: 0.9rem;
-    }
-
-    .live-indicator span, .match-status span, .article-author span {
-        font-size: 1rem;
-    }
-
-    .navbar-container {
-        flex-wrap: wrap;
-    }
-
-    .navbar-logo {
-        flex: 0 0 100%;
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-
-    .navbar-menu {
-        flex: 0 0 100%;
-        order: 3;
-    }
-
-    .navbar-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .navbar-extra {
-        flex: 0 0 100%;
-        justify-content: center;
-        margin-top: 0.5rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .navbar {
-        padding: 0.5rem;
-    }
-
-    .navbar-container {
-        padding: 0.5rem;
-    }
-
-    .hero {
-        padding-top: 4rem;
-    }
-
-    .hero-carousel {
-        height: 300px;
-    }
-
-    .team {
-        font-size: 1.3rem;
-    }
-
-    .score, .score-separator {
-        font-size: 1.5rem;
-    }
-
-    .match-time {
-        font-size: 0.9rem;
-    }
-
-    .article-title {
-        font-size: 1.5rem;
-    }
-
-    .article-excerpt {
-        font-size: 0.8rem;
-    }
-
-    .navbar {
-        top: 0.25rem; /* Further adjust for very small screens */
-    }
-
-    .hero {
-        padding-top: 2.5rem; /* Further reduced padding for very small screens */
-    }
-
-    .hero-carousel {
-        height: calc(100vh - 3.5rem); /* Adjust for very small screens */
-    }
-
-    .live-indicator, .match-status {
-        font-size: 0.6rem; /* Further reduced for very small screens */
-    }
-
-    .blink-dot {
-        width: 5px;
-        height: 5px;
-    }
 }
 
 /* Highlights Section */
@@ -519,7 +437,7 @@ body {
 .highlight-card-inner {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 56.25%;
 }
 
 .highlight-card img {
@@ -613,31 +531,198 @@ body {
     transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    .highlights-grid {
+/* News Section Styles */
+.news {
+    padding: var(--section-spacing) 0;
+    background-color: var(--clr-dark);
+}
+
+.news .container {
+    max-width: var(--width-medium);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.news .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--clr-light);
+    text-align: center;
+    margin-bottom: var(--section-spacing);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--container-padding);
+    margin-bottom: var(--section-spacing);
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--container-padding);
+}
+
+.news-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--clr-light);
+    margin-bottom: 0.75rem;
+}
+
+.news-excerpt {
+    font-size: 0.9rem;
+    color: var(--clr-slate400);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.news-card .btn,
+.view-more-container .btn {
+    align-self: flex-start;
+    padding: 0.5em 1em;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .highlights-grid,
+    .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 768px) {
-    .highlights-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+@media screen and (max-width: 768px) {
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 2rem;
+        transition: left 0.3s ease-in-out;
     }
 
-    .highlight-card .title {
-        font-size: 0.85rem;
+    .navbar-menu.active {
+        left: 0;
     }
 
-    .highlight-card .info {
-        font-size: 0.7rem;
+    .navbar-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1rem;
     }
-}
 
-@media (max-width: 480px) {
-    .highlights-grid {
+    .navbar-links li {
+        margin: 0.5rem 0;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .hero-carousel {
+        height: calc(100vh - 4rem);
+    }
+
+    .match-info {
+        flex-direction: column;
+    }
+
+    .team {
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .score-box {
+        margin: 0.5rem 0;
+    }
+
+    .score, .score-separator {
+        font-size: 1.8rem;
+    }
+
+    .match-time {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .article-title {
+        font-size: 1.8rem;
+    }
+
+    .article-excerpt {
+        font-size: 0.9rem;
+    }
+
+    .live-indicator span, .match-status span, .article-author span {
+        font-size: 1rem;
+    }
+
+    .highlights-grid,
+    .news-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .hero {
+        padding-top: 4rem;
+    }
+
+    .hero-carousel {
+        height: calc(100vh - 5rem);
+    }
+
+    .team {
+        font-size: 1.3rem;
+    }
+
+    .score, .score-separator {
+        font-size: 1.5rem;
+    }
+
+    .match-time {
+        font-size: 0.9rem;
+    }
+
+    .article-title {
+        font-size: 1.5rem;
+    }
+
+    .article-excerpt {
+        font-size: 0.8rem;
+    }
+
+    .live-indicator, .match-status {
+        font-size: 0.6rem;
+    }
+
+    .blink-dot {
+        width: 5px;
+        height: 5px;
     }
 
     .highlight-card {
@@ -645,3 +730,4 @@ body {
         margin: 0 auto;
     }
 }
+

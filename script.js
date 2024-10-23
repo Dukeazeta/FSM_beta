@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleNavbar() {
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
     }
 
     // Handle click outside navbar to close it
