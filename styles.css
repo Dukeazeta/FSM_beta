@@ -34,7 +34,7 @@ body {
 /* Navbar Styles */
 .navbar {
     position: fixed;
-    top: 1rem; /* Moved up slightly */
+    top: 2.5rem; /* Moved up slightly */
     left: 0;
     right: 0;
     z-index: 1000;
@@ -85,7 +85,7 @@ body {
 .navbar-links {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
 }
 
@@ -96,7 +96,7 @@ body {
     font-size: 0.8rem;
     transition: color 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0px;
 }
 
 .navbar-links a:hover, .navbar-extra a:hover {
@@ -478,13 +478,18 @@ body {
 /* Highlights Section */
 .highlights {
     padding: var(--section-spacing) 0;
-    background-color: var(--clr-dark); /* Changed to dark background */
-    color: var(--clr-light); /* Ensure text is light on dark background */
+    background-color: var(--clr-dark);
+}
+
+.highlights .container {
+    max-width: var(--width-medium);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
 }
 
 .highlights .section-title {
     font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--clr-light); /* Changed to light color */
+    color: var(--clr-light);
     text-align: center;
     margin-bottom: clamp(2rem, 5vw, 4rem);
 }
@@ -492,251 +497,115 @@ body {
 .highlights-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: clamp(1rem, 3vw, 2rem);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
     margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
 .highlight-card {
-    background-color: var(--clr-slate600); /* Darker background for cards */
-    border-radius: 8px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
 }
 
 .highlight-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-card-inner {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
 }
 
 .highlight-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 
-.highlight-card h3 {
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
-    color: var(--clr-light); /* Changed to light color */
-    margin: 1rem 1rem 0.5rem;
+.highlight-card .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.highlight-card p {
-    font-size: clamp(0.875rem, 2vw, 1rem);
-    color: var(--clr-slate400); /* Lighter text for better contrast */
-    margin: 0 1rem 1rem;
+.highlight-card:hover .play-button {
+    opacity: 1;
+}
+
+.highlight-card .play-button::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid var(--clr-light);
+    margin-left: 5px;
+}
+
+.highlight-card .content {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--clr-accent);
+    border-radius: 5px;
+}
+
+.highlight-card .title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 5px;
+    line-height: 1.2;
+    color: var(--clr-dark);
+}
+
+.highlight-card .info {
+    font-size: 0.8rem;
+    color: var(--clr-dark);
+    margin: 0;
+    opacity: 0.8;
 }
 
 .view-more-container {
     text-align: center;
 }
 
-.btn {
-    display: inline-block;
-    padding: 0.75em 1.5em;
-    font-size: clamp(0.875rem, 2vw, 1rem);
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
 .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
     background-color: var(--clr-accent);
     color: var(--clr-dark);
-    border: none;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
     background-color: var(--clr-accent-dark);
-    transform: translateY(-2px);
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .navbar-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 1rem;
-        border-radius: 0 0 10px 10px;
-    }
-
-    .navbar-menu.active {
-        display: flex;
-    }
-
-    .navbar-links {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 1rem;
-    }
-
-    .navbar-links li {
-        margin: 0.5rem 0;
-    }
-
-    .navbar-extra {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar-toggle {
-        display: flex;
-    }
-
-    .highlights-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .navbar {
-        top: 0.5rem; /* Adjust for smaller screens */
-    }
-
-    .hero {
-        padding-top: 3rem; /* Reduced padding for smaller screens */
-    }
-
-    .hero-carousel {
-        height: calc(100vh - 4rem); /* Adjust for smaller screens */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .navbar {
-        padding: 0.5rem;
-    }
-
-    .navbar-container {
-        padding: 0.5rem;
-    }
-
-    .hero {
-        padding-top: 4rem;
-    }
-
-    .hero-carousel {
-        height: 300px;
-    }
-
-    .team {
-        font-size: 1.3rem;
-    }
-
-    .score, .score-separator {
-        font-size: 1.5rem;
-    }
-
-    .match-time {
-        font-size: 0.9rem;
-    }
-
-    .article-title {
-        font-size: 1.5rem;
-    }
-
-    .article-excerpt {
-        font-size: 0.8rem;
-    }
-
-    .navbar {
-        top: 0.25rem; /* Further adjust for very small screens */
-    }
-
-    .hero {
-        padding-top: 2.5rem; /* Further reduced padding for very small screens */
-    }
-
-    .hero-carousel {
-        height: calc(100vh - 3.5rem); /* Adjust for very small screens */
-    }
-
-    .live-indicator, .match-status {
-        font-size: 0.6rem; /* Further reduced for very small screens */
-    }
-
-    .blink-dot {
-        width: 5px;
-        height: 5px;
-    }
-}
-
-@media (min-width: 769px) {
-    .highlights-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Updated Match Container and Status Styles */
-.match-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    padding-top: 20px; /* Add some top padding to make room for the status */
-}
-
-.match-status-container {
-    position: absolute;
-    top: 0; /* Align with the top of the container */
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.live-indicator, .match-status {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-}
-
-.live-indicator span, .match-status span {
-    margin-right: 0.25rem;
-}
-
-.blink-dot {
-    width: 6px;
-    height: 6px;
-    background-color: red;
-    border-radius: 50%;
-    animation: blink 1s infinite;
-}
-
-.match-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 0.5rem; /* Reduced space below the status */
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 480px) {
-    .live-indicator, .match-status {
-        font-size: 0.6rem;
-    }
-
-    .blink-dot {
-        width: 5px;
-        height: 5px;
-    }
-
-    .match-container {
-        padding-top: 15px; /* Slightly less padding for smaller screens */
+@media (max-width: 768px) {
+    .highlights-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
-
