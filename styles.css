@@ -240,7 +240,8 @@ body {
     align-items: center;
     overflow: hidden;
     padding-top: 1.5rem;
-    margin-bottom: 2rem; /* Add space below the hero */
+    padding-bottom: 0rem;
+    margin-bottom: 0rem; /* Add space below the hero */
 }
 
 .hero-carousel {
@@ -387,7 +388,7 @@ body {
 
 .carousel-controls {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 0;
     right: 0;
     transform: translateY(-50%);
@@ -423,7 +424,7 @@ body {
 /* Highlights Section */
 .highlights {
     background-color: var(--clr-dark);
-    padding-top: 1rem; /* Reduced padding to move section up */
+    padding-top: 0rem; /* Reduced padding to move section up */
 }
 
 .highlights .container {
