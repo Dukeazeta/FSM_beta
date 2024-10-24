@@ -124,7 +124,7 @@ body {
     height: 3px;
     background-color: var(--clr-light);
     position: absolute;
-    transition-property: transform;
+    transition-property: transform, background-color;
     transition-duration: 0.15s;
     transition-timing-function: ease;
 }
@@ -157,8 +157,27 @@ body {
     transform: rotate(-90deg);
 }
 
+/* Hover effect for hamburger */
+.navbar-toggle:hover .hamburger-inner,
+.navbar-toggle:hover .hamburger-inner::before,
+.navbar-toggle:hover .hamburger-inner::after {
+    background-color: var(--clr-accent);
+}
+
 /* Responsive Navbar Styles */
 @media (max-width: 768px) {
+    .navbar-container {
+        padding: 0.5rem var(--spacing-md);
+    }
+
+    .logo-image {
+        height: 24px; /* Reduced size for mobile */
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
     .navbar-menu {
         position: fixed;
         top: 0;
@@ -170,7 +189,7 @@ body {
         flex-direction: column;
         justify-content: flex-start;
         transition: right 0.3s ease;
-        padding-top: 60px; /* Match the navbar height */
+        padding-top: 60px;
     }
 
     .navbar-menu.active {
@@ -181,7 +200,7 @@ body {
         flex-direction: column;
         align-items: center;
         width: 100%;
-        padding-top: 20px; /* Add some space after the navbar */
+        padding-top: 20px;
     }
 
     .navbar-links li {
@@ -193,7 +212,7 @@ body {
     .navbar-links a {
         display: block;
         padding: 0.5rem 0;
-        font-size: 1.1rem; /* Slightly larger font size for mobile */
+        font-size: 1.1rem;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
@@ -201,13 +220,12 @@ body {
         background-color: var(--clr-accent);
         color: var(--clr-dark);
     }
+}
 
-    .navbar-toggle {
-        display: block;
-    }
-
-    .hero-carousel {
-        height: calc(100vh - 3rem);
+/* For even smaller screens */
+@media (max-width: 480px) {
+    .logo-image {
+        height: 20px; /* Further reduced size for very small screens */
     }
 }
 
@@ -291,9 +309,10 @@ body {
 }
 
 .team {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 0 1rem;
+    text-align: center;
 }
 
 .score-box {
@@ -640,19 +659,34 @@ body {
     }
 
     .match-info {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 1rem;
     }
 
     .team {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin: 0;
+        width: 30%; /* Adjust as needed */
     }
 
     .score-box {
-        margin: 0.5rem 0;
+        padding: 0.25rem 0.5rem;
     }
 
     .score, .score-separator {
         font-size: 1.5rem;
+    }
+
+    .team:first-child {
+        text-align: right;
+    }
+
+    .team:last-child {
+        text-align: left;
     }
 
     .match-time {
@@ -853,3 +887,4 @@ main {
         font-size: 1rem;
     }
 }
+
