@@ -366,10 +366,14 @@ body {
 }
 
 .team {
-    font-size: 3rem;
+    font-size: clamp(0.9rem, 3vw, 1.3rem);
     font-weight: 700;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
     text-align: center;
+    max-width: 40%; /* Limit width to prevent overflow */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .score-box {
@@ -606,6 +610,10 @@ body {
 
     .highlight-card:nth-child(n+4) {
         display: none;
+    }
+
+    .team {
+        font-size: clamp(1rem, 3.5vw, 1.2rem);
     }
 }
 
@@ -925,6 +933,15 @@ body {
     .highlight-card {
         max-width: 300px;
         margin: 0 auto;
+    }
+
+    .match-container {
+        padding-top: 2.5rem; /* Slightly reduced for very small screens */
+    }
+
+    .team {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        max-width: 45%; /* Slightly increased for better readability on mobile */
     }
 }
 
