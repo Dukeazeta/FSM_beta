@@ -1,9 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Base Styles and Variables */
 :root {
     --clr-light: #fff;
     --clr-dark: #000;
@@ -14,15 +9,21 @@
     --container-padding: clamp(1rem, 5vw, 3rem);
     --section-spacing: clamp(3rem, 10vw, 8rem);
     --width-medium: 1200px;
+    --navbar-height: 60px;
+    --font-size-base: clamp(1rem, 2vw, 1.125rem);
+    --font-size-small: 0.9rem;
+    --font-size-large: 1.5rem;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--clr-light);
     background-color: var(--clr-dark);
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    padding-top: 60px; /* Match the navbar height */
+    font-size: var(--font-size-base);
+    padding-top: var(--navbar-height);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -50,51 +51,34 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem var(--spacing-md);
+    padding: 1rem var(--container-padding);
     max-width: var(--width-medium);
     margin: 0 auto;
-    height: 60px; /* Set a fixed height for the navbar */
+    height: var(--navbar-height);
 }
 
-.navbar-logo {
-    z-index: 2;
-}
+.logo-image { height: 30px; width: auto; }
 
-.logo-image {
-    height: 30px;
-    width: auto;
-}
-
-.navbar-menu {
-    display: flex;
-    align-items: center;
-}
+.navbar-menu { display: flex; align-items: center; }
 
 .navbar-links {
     display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
-.navbar-links li {
-    margin-left: 1.5rem;
-}
+.navbar-links li { margin-left: 1.5rem; }
 
 .navbar-links a {
     color: var(--clr-light);
     text-decoration: none;
-    font-family: var(--ff-heading);
-    font-size: 0.9rem;
+    font-size: var(--font-size-small);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
-.navbar-links a:hover {
-    color: var(--clr-accent);
-}
+.navbar-links a:hover { color: var(--clr-accent); }
 
 .navbar-toggle {
     display: none;
@@ -113,20 +97,12 @@ body {
     position: relative;
 }
 
-.hamburger-inner {
-    display: block;
-    top: 50%;
-    margin-top: -2px;
-}
-
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     width: 30px;
     height: 3px;
     background-color: var(--clr-light);
     position: absolute;
-    transition-property: transform, background-color;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
+    transition: transform 0.15s ease;
 }
 
 .hamburger-inner::before, .hamburger-inner::after {
@@ -134,44 +110,91 @@ body {
     display: block;
 }
 
-.hamburger-inner::before {
-    top: -10px;
+.hamburger-inner::before { top: -10px; }
+.hamburger-inner::after { bottom: -10px; }
+
+/* Hero and Carousel Styles */
+.hero {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.hamburger-inner::after {
-    bottom: -10px;
+.hero-carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
 }
 
-/* Hamburger Animation */
-.navbar-toggle.active .hamburger-inner {
-    transform: rotate(45deg);
-}
-
-.navbar-toggle.active .hamburger-inner::before {
+.hero-slide {
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.navbar-toggle.active .hamburger-inner::after {
-    bottom: 0;
-    transform: rotate(-90deg);
+.hero-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
 }
 
-/* Hover effect for hamburger */
-.navbar-toggle:hover .hamburger-inner,
-.navbar-toggle:hover .hamburger-inner::before,
-.navbar-toggle:hover .hamburger-inner::after {
-    background-color: var(--clr-accent);
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: 10;
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--clr-light);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button i {
+    font-size: 1.5rem;
 }
 
 /* Responsive Navbar Styles */
 @media (max-width: 768px) {
     .navbar-container {
-        padding: 0.5rem var(--spacing-md);
+        padding: 0.5rem var(--container-padding);
     }
 
     .logo-image {
-        height: 24px; /* Reduced size for mobile */
+        height: 24px;
     }
 
     .navbar-toggle {
@@ -225,23 +248,23 @@ body {
 /* For even smaller screens */
 @media (max-width: 480px) {
     .logo-image {
-        height: 20px; /* Further reduced size for very small screens */
+        height: 20px;
     }
 }
 
 /* Hero Section Styles */
 .hero {
     position: relative;
-    height: 80vh; /* Reduced from 100vh */
-    min-height: 500px; /* Reduced from 600px */
+    height: 70vh; /* Further reduced from 80vh */
+    min-height: 450px; /* Further reduced from 500px */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
     align-items: center;
     overflow: hidden;
-    padding-top: 1.5rem;
-    padding-bottom: 0rem;
-    margin-bottom: 0rem; /* Add space below the hero */
+    padding-top: 5rem;
+    padding-bottom: 0;
+    margin-bottom: -2rem; /* Added negative margin to pull up the next section */
 }
 
 .hero-carousel {
@@ -271,7 +294,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     padding-bottom: 0rem;
 }
@@ -424,6 +447,7 @@ body {
 /* Highlights Section */
 .highlights {
     background-color: var(--clr-dark);
+    margin-top: 0rem;
     padding-top: 0rem; /* Reduced padding to move section up */
 }
 
@@ -904,6 +928,220 @@ main {
 @media (max-width: 768px) {
     .carousel-nav {
         top: 40%; /* Adjust this value to move buttons higher or lower on mobile */
+    }
+
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .carousel-button i {
+        font-size: 1rem;
+    }
+}
+
+/* Base responsive adjustments */
+@media (max-width: 1200px) {
+    :root {
+        --container-padding: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --section-spacing: 4rem;
+    }
+
+    .hero {
+        height: 70vh;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .match-status {
+        font-size: 0.7rem;
+    }
+
+    .match-info {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 1rem;
+    }
+
+    .team {
+        font-size: 1rem;
+        margin: 0;
+        width: 30%;
+    }
+
+    .score-box {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .score, .score-separator {
+        font-size: 1.5rem;
+    }
+
+    .team:first-child {
+        text-align: right;
+    }
+
+    .team:last-child {
+        text-align: left;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .cta-button {
+        width: 100%;
+    }
+
+    .highlights-grid,
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .match-status {
+        font-size: 0.6rem;
+    }
+
+    .team {
+        font-size: 0.9rem;
+    }
+
+    .score, .score-separator {
+        font-size: 1.25rem;
+    }
+
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.5em 1em;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .highlight-card,
+    .news-card {
+        padding: 1rem;
+    }
+
+    .highlight-title,
+    .news-title {
+        font-size: 1.1rem;
+    }
+
+    .highlight-excerpt,
+    .news-excerpt {
+        font-size: 0.9rem;
+    }
+}
+
+/* Navbar responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0.5rem var(--container-padding);
+    }
+
+    .logo-image {
+        height: 24px;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: calc(100vh - 60px);
+        background-color: var(--clr-dark);
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: right 0.3s ease;
+        padding-top: 1rem;
+    }
+
+    .navbar-menu.active {
+        right: 0;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-links li {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-links a {
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1rem;
+    }
+}
+
+/* Footer responsive adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-copyright,
+    .footer-social,
+    .footer-contact {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 480px) {
+    .logo-image {
+        height: 20px;
+    }
+
+    .hero-carousel {
+        height: calc(100vh - 60px);
     }
 
     .carousel-button {
