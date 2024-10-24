@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cache DOM elements
     const navbarToggle = document.querySelector('.navbar-toggle');
     const navbarMenu = document.querySelector('.navbar-menu');
+    const body = document.body;
     const slides = document.querySelectorAll('.hero-slide');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
@@ -14,8 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleNavbar() {
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
+        body.classList.toggle('menu-open');
     }
+
+    navbarToggle.addEventListener('click', toggleNavbar);
 
     // Handle click outside navbar to close it
     document.addEventListener('click', (event) => {
@@ -25,6 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isClickInside && isNavbarActive) {
             toggleNavbar();
         }
+    });
+
+    // Close menu when clicking on a link
+    const navbarLinks = document.querySelectorAll('.navbar-links a');
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarMenu.classList.contains('active')) {
+                toggleNavbar();
+            }
+        });
     });
 
     // Carousel functionality
@@ -99,29 +112,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startSlideshow() {
-        stopSlideshow(); // Clear any existing interval
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-
-    function stopSlideshow() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-        }
+        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
     }
 
     function resetSlideshow() {
-        stopSlideshow();
+        clearInterval(slideInterval);
         startSlideshow();
     }
 
     // Initialize components
-    if (navbarToggle && navbarMenu) {
-        navbarToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent click from bubbling to document
-            toggleNavbar();
-        });
-    }
+    initializeCarousel();
 
+    // Event listeners for carousel buttons
     if (prevButton && nextButton) {
         prevButton.addEventListener('click', () => {
             previousSlide();
@@ -133,41 +135,4 @@ document.addEventListener('DOMContentLoaded', () => {
             resetSlideshow();
         });
     }
-
-    initializeCarousel();
-
-    // Handle page visibility changes
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            stopSlideshow();
-        } else {
-            startSlideshow();
-        }
-    });
-
-    // Add smooth scrolling for navbar links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                // Close mobile menu if open
-                if (navbarMenu.classList.contains('active')) {
-                    toggleNavbar();
-                }
-            }
-        });
-    });
-
-    // Clean up on page unload
-    window.addEventListener('unload', () => {
-        stopSlideshow();
-    });
 });
