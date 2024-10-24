@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideInterval;
 
     // Navbar functionality
-    function toggleNavbar() {
+    function toggleNavbar(event) {
+        event.stopPropagation();
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
         body.classList.toggle('menu-open');
@@ -20,22 +21,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navbarToggle.addEventListener('click', toggleNavbar);
 
-    // Handle click outside navbar to close it
+    // Close menu when clicking outside
     document.addEventListener('click', (event) => {
-        const isClickInside = navbarToggle.contains(event.target) || navbarMenu.contains(event.target);
-        const isNavbarActive = navbarMenu.classList.contains('active');
-
-        if (!isClickInside && isNavbarActive) {
-            toggleNavbar();
+        const isClickInside = navbarMenu.contains(event.target) || navbarToggle.contains(event.target);
+        if (!isClickInside && navbarMenu.classList.contains('active')) {
+            toggleNavbar(event);
         }
+    });
+
+    // Prevent clicks inside the menu from closing it
+    navbarMenu.addEventListener('click', (event) => {
+        event.stopPropagation();
     });
 
     // Close menu when clicking on a link
     const navbarLinks = document.querySelectorAll('.navbar-links a');
     navbarLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (event) => {
             if (navbarMenu.classList.contains('active')) {
-                toggleNavbar();
+                toggleNavbar(event);
             }
         });
     });
