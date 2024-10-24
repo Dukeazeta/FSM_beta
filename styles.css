@@ -303,7 +303,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -336,7 +336,7 @@ body {
 }
 
 .team {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 700;
     margin: 0 1rem;
     text-align: center;
@@ -350,9 +350,10 @@ body {
     align-items: center;
 }
 
-.score, .score-separator {
-    font-size: 2rem;
+.score {
+    font-size: 3rem;
     font-weight: 700;
+    color: var(--clr-accent);
 }
 
 .score-separator {
@@ -1154,3 +1155,28 @@ main {
     }
 }
 
+.match-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.match-status .league {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--clr-accent);
+    margin-bottom: 0.2rem;
+}
+
+.match-status .time-status {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--clr-slate400);
+}
