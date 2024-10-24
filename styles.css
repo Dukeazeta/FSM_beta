@@ -366,7 +366,7 @@ body {
 }
 
 .team {
-    font-size: 1.7rem;
+    font-size: 3rem;
     font-weight: 700;
     margin: 0 1rem;
     text-align: center;
@@ -391,7 +391,7 @@ body {
 }
 
 .match-time {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
 }
