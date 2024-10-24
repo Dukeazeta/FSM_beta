@@ -139,4 +139,37 @@ document.addEventListener('DOMContentLoaded', () => {
             resetSlideshow();
         });
     }
+
+    const highlightCards = document.querySelectorAll('.highlight-card');
+
+    function updateHighlightVisibility() {
+        const screenWidth = window.innerWidth;
+
+        highlightCards.forEach((card, index) => {
+            if (screenWidth <= 768) {
+                // Show first 3 on mobile
+                if (index < 3) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else if (screenWidth <= 1200) {
+                // Show first 6 on tablet
+                if (index < 6) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else {
+                // Show all on desktop
+                card.style.display = 'flex';
+            }
+        });
+    }
+
+    // Initial check
+    updateHighlightVisibility();
+
+    // Update on window resize
+    window.addEventListener('resize', updateHighlightVisibility);
 });

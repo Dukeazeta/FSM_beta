@@ -497,19 +497,24 @@ body {
 }
 
 .highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
+    justify-content: center;
 }
 
+/* Highlight Card Styles */
 .highlight-card {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--clr-slate600);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 8px;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    height: 200px; /* Set a fixed height for the card */
 }
 
 .highlight-card:hover {
@@ -520,20 +525,19 @@ body {
 .highlight-card-inner {
     position: relative;
     width: 100%;
-    padding-top: 56.25%;
+    height: 100%; /* Take up all available space */
 }
 
-.highlight-card img {
+.highlight-card-inner img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 4px;
 }
 
-.highlight-card .play-button {
+.play-button {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -553,7 +557,7 @@ body {
     opacity: 1;
 }
 
-.highlight-card .play-button::before {
+.play-button::before {
     content: '';
     width: 0;
     height: 0;
@@ -564,10 +568,13 @@ body {
 }
 
 .highlight-card .content {
-    margin-top: 8px;
     padding: 8px;
     background-color: var(--clr-accent);
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .highlight-card .title {
@@ -583,6 +590,29 @@ body {
     color: var(--clr-dark);
     margin: 0;
     opacity: 0.8;
+}
+
+/* Limit Highlights Display */
+@media (max-width: 768px) {
+    .highlight-card:nth-child(n+4) {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .highlight-card:nth-child(n+7) {
+        display: none;
+    }
+}
+
+@media (min-width: 1201px) {
+    .highlights-grid {
+        justify-content: space-between;
+    }
+
+    .highlight-card {
+        max-width: 300px;
+    }
 }
 
 .view-more-container {
@@ -1230,3 +1260,28 @@ html {
 body.menu-open {
     overflow: hidden;
 }
+
+/* Ensure smooth transition when hiding/showing cards */
+.highlight-card {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.highlight-card.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+
+/* Optional: Add media queries to adjust the aspect ratio if needed */
+@media (max-width: 768px) {
+    .highlight-card-inner {
+        width: 35%; /* Slightly reduced width on smaller screens */
+        padding-top: 20%; /* Adjusted aspect ratio */
+    }
+
+    .content {
+        width: 65%;
+        padding: 8px;
+    }
+}
+
