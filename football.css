@@ -146,6 +146,8 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+    max-height: none; /* Remove the max-height restriction for the initial list */
+    overflow: visible; /* Make sure content is not hidden */
 }
 
 .match-item {
@@ -154,13 +156,6 @@
     padding: 0.75rem;
     margin-bottom: 0.75rem;
     transition: background-color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center-align the content */
-}
-
-.match-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .match-date {
@@ -260,4 +255,39 @@
     .team:last-child {
         order: 3;
     }
+}
+
+.view-more-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.view-more-btn {
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.view-more-btn:hover {
+    background-color: var(--clr-accent-dark);
+}
+
+.hidden {
+    display: none;
+}
+
+#extended-matches {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+#extended-matches.expanded {
+    max-height: 2000px; /* Adjust this value based on your content */
+    transition: max-height 1s ease-in;
 }

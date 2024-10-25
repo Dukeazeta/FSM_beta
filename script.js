@@ -181,4 +181,20 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         }
     });
+
+    const viewMoreBtn = document.getElementById('view-more-btn');
+    const extendedMatches = document.getElementById('extended-matches');
+
+    viewMoreBtn.addEventListener('click', function() {
+        extendedMatches.classList.toggle('hidden');
+        extendedMatches.classList.toggle('expanded');
+        
+        if (extendedMatches.classList.contains('hidden')) {
+            viewMoreBtn.textContent = 'View More';
+            // Scroll back to the top of the matches section
+            document.querySelector('.upcoming-matches').scrollIntoView({ behavior: 'smooth' });
+        } else {
+            viewMoreBtn.textContent = 'View Less';
+        }
+    });
 });
