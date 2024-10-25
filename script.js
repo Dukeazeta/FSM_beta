@@ -172,4 +172,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update on window resize
     window.addEventListener('resize', updateHighlightVisibility);
+
+    // Add this new code to handle active state of navbar links
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.navbar-links a');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
 });

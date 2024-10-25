@@ -1,0 +1,14 @@
+/* Football-specific styles */
+.football-content {
+    padding: var(--section-spacing) 0;
+}
+
+.football-content h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--clr-accent);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Add more football-specific styles here */
+
