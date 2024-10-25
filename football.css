@@ -554,3 +554,79 @@ button:hover,
     margin-top: 1rem;
 }
 
+/* Hamburger menu styles for football page */
+.navbar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    outline: none;
+}
+
+.navbar-toggle:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.navbar-toggle:not(:focus-visible) {
+    outline: none;
+}
+
+/* Remove highlight on touch devices */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Hamburger icon styles */
+.hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 30px;
+    height: 2px;
+    background-color: var(--clr-light);
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -8px;
+}
+
+.hamburger-inner::after {
+    bottom: -8px;
+}
+
+/* Active state */
+.navbar-toggle.active .hamburger-inner {
+    transform: rotate(45deg);
+}
+
+.navbar-toggle.active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+}
+
+.navbar-toggle.active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+}
