@@ -1,14 +1,135 @@
 /* Football-specific styles */
 .football-content {
     padding: var(--section-spacing) 0;
+    max-width: var(--width-medium);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
 }
 
 .football-content h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     color: var(--clr-accent);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+    height: auto;
+    min-height: calc(100vh - var(--navbar-height) - 100px); /* Adjust based on your footer height */
+}
+
+.grid-item {
+    background-color: var(--clr-slate600);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.grid-item h2 {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-bottom: 0;
+    color: var(--clr-accent);
+}
+
+.leagues {
+    grid-column: span 1;
+    grid-row: span 3;
+}
+
+.upcoming-matches {
+    grid-column: span 2;
+    grid-row: span 3;
+}
+
+.top-scorers {
+    grid-column: span 1;
+    grid-row: span 3;
+}
+
+.news-updates {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+    }
+
+    .grid-item {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .leagues, .upcoming-matches, .top-scorers, .news-updates {
+        grid-column: span 1;
+        grid-row: auto;
+    }
 }
 
 /* Add more football-specific styles here */
 
+/* Add this to your existing football.css file */
+
+.competition-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.competition-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.competition-item:last-child {
+    border-bottom: none;
+}
+
+.competition-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.competition-name {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 500;
+    color: var(--clr-light);
+}
+
+.competition-icon {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .competition-item {
+        padding: 0.6rem 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .competition-item {
+        padding: 0.5rem 0.3rem;
+    }
+    
+    .competition-name {
+        font-size: 0.9rem;
+    }
+    
+    .competition-icon {
+        font-size: 1.2rem;
+    }
+}
