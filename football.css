@@ -291,3 +291,78 @@
     max-height: 2000px; /* Adjust this value based on your content */
     transition: max-height 1s ease-in;
 }
+
+.scorer-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scorer-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.scorer-name {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 600;
+    color: var(--clr-light);
+    margin-right: 0.5rem;
+}
+
+.scorer-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.scorer-tag {
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    color: var(--clr-dark);
+    background-color: var(--clr-accent); /* Use the accent color for all tags */
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+.scorer-goals {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: var(--clr-slate400);
+}
+
+@media (max-width: 768px) {
+    .scorer-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .scorer-name {
+        margin-bottom: 0.5rem;
+    }
+
+    .scorer-details {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    .scorer-item {
+        padding: 0.5rem;
+    }
+
+    .scorer-name {
+        font-size: 0.9rem;
+    }
+
+    .scorer-tag, .scorer-goals {
+        font-size: 0.75rem;
+    }
+}
