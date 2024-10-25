@@ -4,6 +4,7 @@
     max-width: var(--width-medium);
     margin: 0 auto;
     padding: 0 var(--container-padding);
+    padding-top: calc(var(--navbar-height) + 2rem); /* Add this line */
 }
 
 .football-content h1 {
@@ -73,6 +74,10 @@
     .leagues, .upcoming-matches, .top-scorers, .news-updates {
         grid-column: span 1;
         grid-row: auto;
+    }
+
+    .football-content {
+        padding-top: calc(var(--navbar-height) + 1rem); /* Adjust for smaller screens */
     }
 }
 
