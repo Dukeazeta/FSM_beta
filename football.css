@@ -308,6 +308,7 @@
     align-items: center;
     flex-wrap: wrap;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .scorer-name {
@@ -352,6 +353,16 @@
 /* For the expanded scorer list */
 .scorer-expanded {
     border-top: 1px solid rgba(255, 255, 255, 0.05); /* Reduced opacity for the border */
+    list-style-type: none;
+    padding: 0.5rem 0 0 1rem;
+    margin: 0.5rem 0 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scorer-expanded li {
+    font-size: 0.9rem;
+    color: var(--clr-slate400);
+    margin-bottom: 0.3rem;
 }
 
 /* If you have any other elements with grey backgrounds, adjust them similarly */
@@ -482,3 +493,4 @@ button:hover,
     --clr-dark: #0a0a0a;
     --clr-light: #e0e0e0;
 }
+

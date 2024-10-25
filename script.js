@@ -197,4 +197,25 @@ document.addEventListener('DOMContentLoaded', () => {
             viewMoreBtn.textContent = 'View Less';
         }
     });
+
+    const scorerItems = document.querySelectorAll('.scorer-item');
+
+    scorerItems.forEach(item => {
+        const scorerSummary = item.querySelector('.scorer-summary');
+        const expandedList = item.querySelector('.scorer-expanded');
+
+        scorerSummary.addEventListener('click', function() {
+            // Close all other expanded lists
+            scorerItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.querySelector('.scorer-expanded').classList.add('hidden');
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Toggle the clicked list
+            expandedList.classList.toggle('hidden');
+            item.classList.toggle('active');
+        });
+    });
 });
