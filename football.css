@@ -274,7 +274,7 @@
 }
 
 .view-more-btn:hover {
-    background-color: var(--clr-accent-dark);
+    opacity: 0.9;
 }
 
 .hidden {
@@ -416,7 +416,7 @@ body {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: #ffffff; /* White for headings */
+    color: var(--clr-accent);
 }
 
 /* Links */
@@ -444,8 +444,12 @@ a:hover {
 /* Competition tags */
 .scorer-tag,
 .match-tag {
-    background-color: #2a2a2a; /* Dark grey background */
-    color: #ffffff; /* White text */
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
 }
 
 /* Borders */
@@ -456,13 +460,14 @@ a:hover {
 /* Buttons (if any) */
 button,
 .view-more-btn {
-    background-color: #2a2a2a;
-    color: #ffffff;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: 600;
 }
 
 button:hover,
@@ -472,4 +477,8 @@ button:hover,
 
 /* Adjust other elements as needed */
 
-
+:root {
+    --clr-accent: #4CAF50; /* Adjust this green color as needed */
+    --clr-dark: #0a0a0a;
+    --clr-light: #e0e0e0;
+}
