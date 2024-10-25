@@ -175,24 +175,30 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
     margin-bottom: 0.5rem;
 }
 
 .team {
-    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
     font-weight: 500;
     color: var(--clr-light);
     text-align: center;
-    margin: 0 0.5rem;
+    margin: 0.2rem;
+    padding: 0.2rem 0.4rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    flex: 1 1 45%; /* Allow two teams per row on larger screens */
+    word-break: break-word; /* Allow long words to break */
 }
 
 .vs {
-    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     color: var(--clr-slate400);
-    margin: 0 0.5rem;
+    margin: 0.2rem;
+    flex: 0 0 auto;
 }
 
-/* Add styles for the VC Cup tag */
 .match-tag {
     font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     color: var(--clr-dark);
@@ -205,22 +211,9 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .match-item {
-        padding: 0.6rem;
-        margin-bottom: 0.6rem;
-    }
-
-    .match-teams {
-        flex-direction: column;
-    }
-
+@media (min-width: 768px) {
     .team {
-        margin: 0.3rem 0;
-    }
-
-    .vs {
-        margin: 0.3rem 0;
+        flex: 1 1 45%; /* Allow two teams per row on larger screens */
     }
 }
 
@@ -231,14 +224,40 @@
     }
 
     .match-date, .match-tag {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
     .team {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        padding: 0.15rem 0.3rem;
     }
 
     .vs {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .match-teams {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team {
+        flex: 1 1 100%; /* Full width for teams on mobile */
+        margin: 0.2rem 0;
+    }
+
+    .vs {
+        margin: 0.2rem 0;
+        order: 2; /* Place 'vs' between teams */
+    }
+
+    .team:first-child {
+        order: 1;
+    }
+
+    .team:last-child {
+        order: 3;
     }
 }
