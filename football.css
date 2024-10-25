@@ -160,7 +160,7 @@
 
 .match-date {
     font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-    color: var(--clr-accent);
+    color: rgba(255, 255, 255, 0.9); /* Slightly off-white for better contrast */
     margin-bottom: 0.5rem;
     text-align: center; /* Center-align the date and time */
 }
@@ -189,7 +189,7 @@
 
 .vs {
     font-size: clamp(0.7rem, 1.5vw, 0.8rem);
-    color: var(--clr-slate400);
+    color: rgba(255, 255, 255, 0.7); /* Less prominent text */
     margin: 0.2rem;
     flex: 0 0 auto;
 }
@@ -299,7 +299,7 @@
 }
 
 .scorer-item {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.03); /* Reduced opacity */
     border-radius: 8px;
     padding: 0.75rem;
     margin-bottom: 0.75rem;
@@ -307,6 +307,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    transition: background-color 0.3s ease;
 }
 
 .scorer-name {
@@ -334,8 +335,26 @@
 
 .scorer-goals {
     font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-    color: var(--clr-slate400);
+    color: rgba(255, 255, 255, 0.7); /* Less prominent text */
 }
+
+/* Hover effect for interactive elements */
+.scorer-item:hover,
+.match-item:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Slightly more visible on hover */
+}
+
+/* Active state for scorer items when expanded */
+.scorer-item.active {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* For the expanded scorer list */
+.scorer-expanded {
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Reduced opacity for the border */
+}
+
+/* If you have any other elements with grey backgrounds, adjust them similarly */
 
 @media (max-width: 768px) {
     .scorer-item {
@@ -366,3 +385,91 @@
         font-size: 0.75rem;
     }
 }
+
+/* Set the background color for the entire page */
+body {
+    background-color: #0a0a0a; /* Very dark grey, almost black */
+    color: #e0e0e0; /* Light grey for general text */
+}
+
+/* Adjust container backgrounds */
+.grid-item,
+.match-item,
+.scorer-item {
+    background-color: #111111; /* Slightly lighter than the body background */
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effects for interactive elements */
+.scorer-item:hover,
+.match-item:hover {
+    background-color: #1a1a1a; /* Slightly lighter on hover */
+}
+
+/* Active state for scorer items when expanded */
+.scorer-item.active {
+    background-color: #202020;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff; /* White for headings */
+}
+
+/* Links */
+a {
+    color: #4a90e2; /* A muted blue for links */
+}
+
+a:hover {
+    color: #5da0ff; /* Lighter blue on hover */
+}
+
+/* Match and scorer details */
+.match-date,
+.team,
+.scorer-name {
+    color: #ffffff; /* White for important text */
+}
+
+.vs,
+.scorer-goals,
+.scorer-expanded li {
+    color: #b0b0b0; /* Light grey for less prominent text */
+}
+
+/* Competition tags */
+.scorer-tag,
+.match-tag {
+    background-color: #2a2a2a; /* Dark grey background */
+    color: #ffffff; /* White text */
+}
+
+/* Borders */
+.scorer-expanded {
+    border-top: 1px solid #2a2a2a; /* Dark grey border */
+}
+
+/* Buttons (if any) */
+button,
+.view-more-btn {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover,
+.view-more-btn:hover {
+    background-color: #3a3a3a;
+}
+
+/* Adjust other elements as needed */
+
+
