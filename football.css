@@ -34,8 +34,9 @@
 
 .grid-item h2 {
     font-size: clamp(1rem, 3vw, 1.25rem);
-    margin-bottom: 0;
+    margin-bottom: 0.75rem;
     color: var(--clr-accent);
+    text-align: center; /* Center-align the headers */
 }
 
 .leagues {
@@ -136,5 +137,108 @@
     
     .competition-icon {
         font-size: 1.2rem;
+    }
+}
+
+/* Add this to your existing football.css file */
+
+.match-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.match-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align the content */
+}
+
+.match-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.match-date {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: var(--clr-accent);
+    margin-bottom: 0.5rem;
+    text-align: center; /* Center-align the date and time */
+}
+
+.match-teams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.team {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 500;
+    color: var(--clr-light);
+    text-align: center;
+    margin: 0 0.5rem;
+}
+
+.vs {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: var(--clr-slate400);
+    margin: 0 0.5rem;
+}
+
+/* Add styles for the VC Cup tag */
+.match-tag {
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    color: var(--clr-dark);
+    background-color: var(--clr-accent);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .match-item {
+        padding: 0.6rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .match-teams {
+        flex-direction: column;
+    }
+
+    .team {
+        margin: 0.3rem 0;
+    }
+
+    .vs {
+        margin: 0.3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .match-item {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .match-date, .match-tag {
+        font-size: 0.8rem;
+    }
+
+    .team {
+        font-size: 0.9rem;
+    }
+
+    .vs {
+        font-size: 0.8rem;
     }
 }
