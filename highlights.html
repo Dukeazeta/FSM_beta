@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUPRE SPORT MEDIA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Highlights - FUPRE SPORT MEDIA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="football.css">
     <link rel="stylesheet" href="highlightstyles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -26,19 +29,77 @@
                     <ul class="navbar-links">
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="football.html">FOOTBALL</a></li>
-                        <li><a href="highlights.html">HIGHLIGHTS</a></li>
                         <li><a href="#basketball">BASKETBALL</a></li>
                         <li><a href="#track-field">TRACK & FIELD</a></li>
+                        <li><a href="highlights.html" class="active">HIGHLIGHTS</a></li>
                         <li><a href="#news">NEWS</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <section class="highlight-section">
-        <h1 class="text">Highlights</h1>
-        <div class="highlights-grid" id="highlightsGrid"></div>
-    </section>
-    <script src="highlightscript.js"></script>
+    <main>
+        <div class="back-button">
+            <a href="javascript:history.back()" aria-label="Go back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <section class="highlights">
+            <div class="container">
+                <h1 class="section-title">Highlights</h1>
+                <div class="highlights-grid">
+                    <!-- Highlight Card 1 -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-inner">
+                            <img src="path/to/highlight-image1.jpg" alt="Highlight 1">
+                            <div class="play-button"></div>
+                            <div class="content">
+                                <h3 class="title">Team A vs Team B Highlights</h3>
+                                <p class="info">Super League • May 15, 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Highlight Card 2 -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-inner">
+                            <img src="path/to/highlight-image2.jpg" alt="Highlight 2">
+                            <div class="play-button"></div>
+                            <div class="content">
+                                <h3 class="title">Team C vs Team D Highlights</h3>
+                                <p class="info">VC Cup • May 20, 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more highlight cards as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-copyright">
+                © 2024 FUPRE Sport Media. All Rights Reserved.
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon" aria-label="X (formerly Twitter)">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:contact@fupresportmedia.com">contact@fupresportmedia.com</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

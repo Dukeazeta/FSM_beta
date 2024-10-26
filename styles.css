@@ -1,8 +1,12 @@
 /* Base Styles and Variables */
 :root {
+    --clr-primary: #0a0a0a;
+    --clr-secondary: #111111;
+    --clr-accent: #ffd700;
+    --clr-text: #e0e0e0;
+    --clr-text-dark: #333333;
     --clr-light: #fff;
     --clr-dark: #000;
-    --clr-accent: #ffff00;
     --clr-accent-dark: #e6e600;
     --clr-slate400: #94a3b8;
     --clr-slate600: #475569;
@@ -13,6 +17,11 @@
     --font-size-base: clamp(1rem, 2vw, 1.125rem);
     --font-size-small: 0.9rem;
     --font-size-large: 1.5rem;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -241,7 +250,7 @@ body {
         background-color: var(--clr-dark);
         flex-direction: column;
         justify-content: flex-start;
-        transition: right 0.5s ease; /* Increased from 0.3s to 0.5s */
+        transition: right 0.3s ease;
         padding-top: var(--navbar-height);
         z-index: 1000;
     }
@@ -1415,4 +1424,99 @@ body.super-league-page.menu-open .back-button {
     border-radius: 50%;
     text-decoration: none;
     transition: background-color 0.3s ease;
+}
+
+/* Global transition for interactive elements */
+a, button, .highlight-card, .news-card {
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+a:hover, button:hover {
+    opacity: 0.8;
+}
+
+.highlight-card:hover, .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+input, textarea, select {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--clr-secondary);
+    border-radius: 4px;
+    background-color: var(--clr-primary);
+    color: var(--clr-text);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--clr-accent);
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        padding: 1rem 0;
+    }
+
+    .navbar-links li {
+        margin: 0;
+        padding: 0.5rem 0;
+    }
+
+    .navbar-links a {
+        padding: 0.5rem 1rem;
+        display: block;
+        width: 100%;
+    }
 }
