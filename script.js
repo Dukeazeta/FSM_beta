@@ -218,4 +218,35 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.toggle('active');
         });
     });
+
+    // VC Cup Carousel
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.hero-slide');
+        if (slides.length > 0) {
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides[currentSlide].classList.remove('active');
+                slides[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                let next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }
+
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+    });
+
+    document.querySelectorAll('.competition-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            // If the click is on the link or its children, don't prevent default
+            if (e.target.closest('.competition-link')) {
+                return;
+            }
+            // Your existing click handler code...
+        });
+    });
 });
