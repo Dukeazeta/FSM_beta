@@ -1388,3 +1388,13 @@ body.menu-open .back-button {
 .navbar-toggle.active {
     transform: rotate(90deg);
 }
+
+/* Remove fade animation for Super League page */
+body.super-league-page .back-button {
+    transition: none;
+}
+
+body.super-league-page.menu-open .back-button {
+    opacity: 1;
+    visibility: visible;
+}

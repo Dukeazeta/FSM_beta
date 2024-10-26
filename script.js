@@ -14,15 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Navbar functionality
     function toggleNavbar(event) {
-        event.preventDefault();
         event.stopPropagation();
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
         body.classList.toggle('menu-open');
-        
-        // Toggle back button visibility
-        if (backButton) {
-            backButton.style.display = navbarMenu.classList.contains('active') ? 'none' : 'block';
+
+        // Don't prevent default on links
+        if (!event.target.closest('a')) {
+            event.preventDefault();
         }
     }
 
