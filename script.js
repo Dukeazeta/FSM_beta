@@ -18,11 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
         body.classList.toggle('menu-open');
-
-        // Don't prevent default on links
-        if (!event.target.closest('a')) {
-            event.preventDefault();
-        }
     }
 
     navbarToggle.addEventListener('click', toggleNavbar);
@@ -43,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close menu when clicking on a link
     const navbarLinks = document.querySelectorAll('.navbar-links a');
     navbarLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
+        link.addEventListener('click', () => {
             if (navbarMenu.classList.contains('active')) {
                 toggleNavbar(event);
             }
