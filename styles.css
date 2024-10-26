@@ -1398,3 +1398,16 @@ body.super-league-page.menu-open .back-button {
     opacity: 1;
     visibility: visible;
 }
+
+.back-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
