@@ -677,6 +677,7 @@ button:hover,
     top: calc(var(--navbar-height) + 20px);
     left: 20px;
     z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .back-button a {
@@ -771,6 +772,7 @@ button:hover,
     top: calc(var(--navbar-height) + 20px);
     left: 20px;
     z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .back-button a {
@@ -819,4 +821,10 @@ button:hover,
 .match-tag, .scorer-tag {
     text-decoration: none;
 }
+
+
+
+
+
+
 
