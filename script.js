@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideInterval;
 
     // Navbar functionality
-    function toggleNavbar(event) {
-        event.stopPropagation();
+    function toggleNavbar() {
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
         body.classList.toggle('menu-open');
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (event) => {
         const isClickInside = navbarMenu.contains(event.target) || navbarToggle.contains(event.target);
         if (!isClickInside && navbarMenu.classList.contains('active')) {
-            toggleNavbar(event);
+            toggleNavbar();
         }
     });
 

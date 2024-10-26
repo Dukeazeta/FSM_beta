@@ -1380,12 +1380,13 @@ body.menu-open .back-button {
     z-index: 1000;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s; /* Added delay */
 }
 
 body.menu-open .back-button {
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Removed delay for hiding */
 }
 
 /* Ensure the transition is smooth when closing the menu as well */
@@ -1520,3 +1521,50 @@ img {
         width: 100%;
     }
 }
+
+/* Back button styles */
+.back-button {
+    position: fixed;
+    top: calc(var(--navbar-height) + 20px);
+    left: 20px;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s; /* Added delay */
+}
+
+.back-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button a:hover {
+    background-color: var(--clr-accent-dark);
+}
+
+/* Hide back button when menu is open */
+body.menu-open .back-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Removed delay for hiding */
+}
+
+/* Ensure the back button behaves correctly on the Super League page */
+body.super-league-page .back-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.super-league-page.menu-open .back-button {
+    opacity: 0;
+    visibility: hidden;
+}
+
