@@ -78,8 +78,13 @@ body {
     transition: color 0.3s ease;
 }
 
-.navbar-links a:hover { color: var(--clr-accent); }
+.navbar-links a:hover {
+     color: var(--clr-accent);
+     }
 
+.navbar-links a.active { 
+    color: var(--clr-accent);
+ }
 .navbar-toggle {
     display: none;
     background: none;
