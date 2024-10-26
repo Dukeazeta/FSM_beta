@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbarToggle = document.querySelector('.navbar-toggle');
     const navbarMenu = document.querySelector('.navbar-menu');
     const body = document.body;
+    const backButton = document.querySelector('.back-button');
     const slides = document.querySelectorAll('.hero-slide');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
@@ -17,6 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
         navbarMenu.classList.toggle('active');
         navbarToggle.classList.toggle('active');
         body.classList.toggle('menu-open');
+
+        // Don't prevent default on links
+        if (!event.target.closest('a')) {
+            event.preventDefault();
+        }
     }
 
     navbarToggle.addEventListener('click', toggleNavbar);
@@ -172,4 +178,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update on window resize
     window.addEventListener('resize', updateHighlightVisibility);
+
+    // Add this new code to handle active state of navbar links
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.navbar-links a');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+
+    const viewMoreBtn = document.getElementById('view-more-btn');
+    const extendedMatches = document.getElementById('extended-matches');
+
+    viewMoreBtn.addEventListener('click', function() {
+        extendedMatches.classList.toggle('hidden');
+        extendedMatches.classList.toggle('expanded');
+        
+        if (extendedMatches.classList.contains('hidden')) {
+            viewMoreBtn.textContent = 'View More';
+            // Scroll back to the top of the matches section
+            document.querySelector('.upcoming-matches').scrollIntoView({ behavior: 'smooth' });
+        } else {
+            viewMoreBtn.textContent = 'View Less';
+        }
+    });
+
+    const scorerItems = document.querySelectorAll('.scorer-item');
+
+    scorerItems.forEach(item => {
+        const scorerSummary = item.querySelector('.scorer-summary');
+        const expandedList = item.querySelector('.scorer-expanded');
+
+        scorerSummary.addEventListener('click', function() {
+            // Close all other expanded lists
+            scorerItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.querySelector('.scorer-expanded').classList.add('hidden');
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Toggle the clicked list
+            expandedList.classList.toggle('hidden');
+            item.classList.toggle('active');
+        });
+    });
+
+    // VC Cup Carousel
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.hero-slide');
+        if (slides.length > 0) {
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides[currentSlide].classList.remove('active');
+                slides[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                let next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }
+
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+    });
+
+    document.querySelectorAll('.competition-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            // If the click is on the link or its children, don't prevent default
+            if (e.target.closest('.competition-link')) {
+                return;
+            }
+            // Your existing click handler code...
+        });
+    });
 });

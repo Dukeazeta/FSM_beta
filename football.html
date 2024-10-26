@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUPRE SPORT MEDIA - Football</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="football.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <a href="index.html">
+                        <img src="assets/FUPRE FOOTBALL_LOGO.jpg" alt="FSM" class="logo-image">
+                    </a>
+                </div>
+                <button class="navbar-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+                <div class="navbar-menu">
+                    <ul class="navbar-links">
+                        <li><a href="football.html" class="active">FOOTBALL</a></li>
+                        <li><a href="#basketball">BASKETBALL</a></li>
+                        <li><a href="#track-field">TRACK & FIELD</a></li>
+                        <li><a href="#highlights">HIGHLIGHTS</a></li>
+                        <li><a href="#news">NEWS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="back-button">
+            <a href="index.html" aria-label="Go back to home page">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <section class="football-content">
+            <h1>Football at FUPRE</h1>
+            <div class="bento-grid">
+                <div class="grid-item leagues">
+                    <h2>Leagues & Competitions</h2>
+                    <ul class="competition-list">
+                        <li class="competition-item">
+                            <a href="vccup.html" class="competition-link">
+                                <span class="competition-name">VC Cup</span>
+                                <span class="competition-icon">🏆</span>
+                            </a>
+                        </li>
+                        <li class="competition-item">
+                            <a href="superleague.html" class="competition-link">
+                                <span class="competition-name">Fupre Super League</span>
+                                <span class="competition-icon">⚽</span>
+                            </a>
+                        </li>
+                        <li class="competition-item">
+                            <a href="hostelcup.html" class="competition-link">
+                                <span class="competition-name">Hostel Cup</span>
+                                <span class="competition-icon">🏠</span>
+                            </a>
+                        </li>
+                        <li class="competition-item">
+                            <a href="tribalcup.html" class="competition-link">
+                                <span class="competition-name">Tribal Cup</span>
+                                <span class="competition-icon">🏅</span>
+                            </a>
+                        </li>
+                        <li class="competition-item">
+                            <a href="nasscup.html" class="competition-link">
+                                <span class="competition-name">NASS Cup</span>
+                                <span class="competition-icon">🎓</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-item upcoming-matches">
+                    <h2>Upcoming Matches</h2>
+                    <ul class="match-list">
+                        <!-- Show only first 3 matches by default -->
+                        <li class="match-item">
+                            <div class="match-date">May 15, 2024 - 3:00 PM</div>
+                            <div class="match-teams">
+                                <span class="team">Chemistry</span>
+                                <span class="vs">vs</span>
+                                <span class="team">Petroleum Engineering</span>
+                            </div>
+                            <a href="vccup.html" class="match-tag VC">VC Cup</a>
+                        </li>
+                        <!-- Add two more matches here -->
+                    </ul>
+                    <div class="view-more-container">
+                        <button id="view-more-btn" class="view-more-btn">View More</button>
+                    </div>
+                    <ul class="match-list hidden" id="extended-matches">
+                        <!-- Remaining matches -->
+                        <li class="match-item">
+                            <div class="match-date">June 1, 2024 - 2:00 PM</div>
+                            <div class="match-teams">
+                                <span class="team">Room 1</span>
+                                <span class="vs">vs</span>
+                                <span class="team">Room 14</span>
+                            </div>
+                            <div class="match-tag Hostel">Hostel Cup</div>
+                        </li>
+                        <!-- Add all other matches here -->
+                    </ul>
+                </div>
+                <div class="grid-item top-scorers">
+                    <h2>Top Scorers</h2>
+                    <ul class="scorer-list">
+                        <li class="scorer-item" data-competition="VC">
+                            <div class="scorer-summary">
+                                <span class="scorer-name">John Doe</span>
+                                <div class="scorer-details">
+                                    <a href="vccup.html" class="scorer-tag VC">VC Cup</a>
+                                    <span class="scorer-goals">7 goals</span>
+                                </div>
+                            </div>
+                            <ul class="scorer-expanded hidden">
+                                <li>John Doe - 7 goals</li>
+                                <li>Jane Smith - 6 goals</li>
+                                <li>Mike Johnson - 5 goals</li>
+                                <li>Sarah Williams - 4 goals</li>
+                            </ul>
+                        </li>
+                        <li class="scorer-item" data-competition="Hostel">
+                            <div class="scorer-summary">
+                                <span class="scorer-name">Jane Smith</span>
+                                <div class="scorer-details">
+                                    <span class="scorer-tag Hostel">Hostel Cup</span>
+                                    <span class="scorer-goals">6 goals</span>
+                                </div>
+                            </div>
+                            <ul class="scorer-expanded hidden">
+                                <li>Jane Smith - 6 goals</li>
+                                <li>John Doe - 5 goals</li>
+                                <li>Alex Brown - 4 goals</li>
+                                <li>Emma Wilson - 3 goals</li>
+                            </ul>
+                        </li>
+                        <li class="scorer-item" data-competition="Super">
+                            <div class="scorer-summary">
+                                <span class="scorer-name">Mike Johnson</span>
+                                <div class="scorer-details">
+                                    <span class="scorer-tag Super">Super League</span>
+                                    <span class="scorer-goals">8 goals</span>
+                                </div>
+                            </div>
+                            <ul class="scorer-expanded hidden">
+                                <li>Mike Johnson - 8 goals</li>
+                                <li>Tom Wilson - 7 goals</li>
+                                <li>Chris Lee - 6 goals</li>
+                                <li>Pat Quinn - 5 goals</li>
+                            </ul>
+                        </li>
+                        <li class="scorer-item" data-competition="Tribal">
+                            <div class="scorer-summary">
+                                <span class="scorer-name">Sarah Williams</span>
+                                <div class="scorer-details">
+                                    <span class="scorer-tag Tribal">Tribal Cup</span>
+                                    <span class="scorer-goals">5 goals</span>
+                                </div>
+                            </div>
+                            <ul class="scorer-expanded hidden">
+                                <li>Sarah Williams - 5 goals</li>
+                                <li>Jordan Casey - 4 goals</li>
+                                <li>Sam Taylor - 3 goals</li>
+                                <li>Alex Brown - 2 goals</li>
+                            </ul>
+                        </li>
+                        <li class="scorer-item" data-competition="NASS">
+                            <div class="scorer-summary">
+                                <span class="scorer-name">Alex Brown</span>
+                                <div class="scorer-details">
+                                    <span class="scorer-tag NASS">NASS Cup</span>
+                                    <span class="scorer-goals">4 goals</span>
+                                </div>
+                            </div>
+                            <ul class="scorer-expanded hidden">
+                                <li>Alex Brown - 4 goals</li>
+                                <li>Emma Wilson - 3 goals</li>
+                                <li>Chris Lee - 2 goals</li>
+                                <li>Pat Quinn - 1 goal</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-item news-updates">
+                    <h2>Latest News & Updates</h2>
+                    <div class="news-preview">
+                        <img src="assets/news-image-1.jpg" alt="Latest Football News" class="news-image">
+                        <h3 class="news-title">Exciting Finale in the VC Cup Semi-Finals</h3>
+                        <p class="news-excerpt">In a thrilling match that went down to the wire, Computer Science secured their spot in the VC Cup finals with a last-minute goal against Petroleum Engineering...</p>
+                        <a href="#" class="btn-secondary">Read More</a>
+                    </div>
+                    <div class="view-more-container">
+                        <a href="#" class="btn-secondary">View All News</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-copyright">
+                © 2024 FUPRE Sport Media. All Rights Reserved.
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon" aria-label="X (formerly Twitter)">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:contact@fupresportmedia.com">contact@fupresportmedia.com</a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

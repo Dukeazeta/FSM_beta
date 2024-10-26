@@ -1,0 +1,830 @@
+/* Football-specific styles */
+.football-content {
+    padding: var(--section-spacing) 0;
+    max-width: var(--width-medium);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    padding-top: calc(var(--navbar-height) + 2rem); /* Add this line */
+}
+
+.football-content h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: var(--clr-accent);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+    height: auto;
+    min-height: calc(100vh - var(--navbar-height) - 100px); /* Adjust based on your footer height */
+}
+
+.grid-item {
+    background-color: var(--clr-slate600);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.grid-item h2 {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-bottom: 0.75rem;
+    color: var(--clr-accent);
+    text-align: center; /* Center-align the headers */
+}
+
+.leagues {
+    grid-column: span 1;
+    grid-row: span 3;
+}
+
+.upcoming-matches {
+    grid-column: span 2;
+    grid-row: span 3;
+}
+
+.top-scorers {
+    grid-column: span 1;
+    grid-row: span 3;
+}
+
+.news-updates {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+    }
+
+    .grid-item {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .leagues, .upcoming-matches, .top-scorers, .news-updates {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+
+    .football-content {
+        padding-top: calc(var(--navbar-height) + 1rem); /* Adjust for smaller screens */
+    }
+}
+
+/* Add more football-specific styles here */
+
+/* Add this to your existing football.css file */
+
+.competition-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.competition-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.competition-item:last-child {
+    border-bottom: none;
+}
+
+.competition-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.competition-name {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 500;
+    color: var(--clr-light);
+}
+
+.competition-icon {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .competition-item {
+        padding: 0.6rem 0.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .competition-item {
+        padding: 0.5rem 0.3rem;
+    }
+    
+    .competition-name {
+        font-size: 0.9rem;
+    }
+    
+    .competition-icon {
+        font-size: 1.2rem;
+    }
+}
+
+/* Add this to your existing football.css file */
+
+.match-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: none; /* Remove the max-height restriction for the initial list */
+    overflow: visible; /* Make sure content is not hidden */
+}
+
+.match-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.3s ease;
+}
+
+.match-date {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: rgba(255, 255, 255, 0.9); /* Slightly off-white for better contrast */
+    margin-bottom: 0.5rem;
+    text-align: center; /* Center-align the date and time */
+}
+
+.match-teams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.team {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    font-weight: 500;
+    color: var(--clr-light);
+    text-align: center;
+    margin: 0.2rem;
+    padding: 0.2rem 0.4rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    flex: 1 1 45%; /* Allow two teams per row on larger screens */
+    word-break: break-word; /* Allow long words to break */
+}
+
+.vs {
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    color: rgba(255, 255, 255, 0.7); /* Less prominent text */
+    margin: 0.2rem;
+    flex: 0 0 auto;
+}
+
+.match-tag {
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    color: var(--clr-dark);
+    background-color: var(--clr-accent);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .team {
+        flex: 1 1 45%; /* Allow two teams per row on larger screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .match-item {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .match-date, .match-tag {
+        font-size: 0.75rem;
+    }
+
+    .team {
+        font-size: 0.8rem;
+        padding: 0.15rem 0.3rem;
+    }
+
+    .vs {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .match-teams {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team {
+        flex: 1 1 100%; /* Full width for teams on mobile */
+        margin: 0.2rem 0;
+    }
+
+    .vs {
+        margin: 0.2rem 0;
+        order: 2; /* Place 'vs' between teams */
+    }
+
+    .team:first-child {
+        order: 1;
+    }
+
+    .team:last-child {
+        order: 3;
+    }
+}
+
+.view-more-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.view-more-btn {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    border: 2px solid var(--clr-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.view-more-btn:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+}
+
+.hidden {
+    display: none;
+}
+
+#extended-matches {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+#extended-matches.expanded {
+    max-height: 2000px; /* Adjust this value based on your content */
+    transition: max-height 1s ease-in;
+}
+
+.scorer-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scorer-item {
+    background-color: rgba(255, 255, 255, 0.03); /* Reduced opacity */
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.scorer-name {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 600;
+    color: var(--clr-light);
+    margin-right: 0.5rem;
+}
+
+.scorer-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.scorer-tag {
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    color: var(--clr-dark);
+    background-color: var(--clr-accent); /* Use the accent color for all tags */
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+.scorer-goals {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: rgba(255, 255, 255, 0.7); /* Less prominent text */
+}
+
+/* Hover effect for interactive elements */
+.scorer-item:hover,
+.match-item:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Slightly more visible on hover */
+}
+
+/* Active state for scorer items when expanded */
+.scorer-item.active {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+/* For the expanded scorer list */
+.scorer-expanded {
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Reduced opacity for the border */
+    list-style-type: none;
+    padding: 0.5rem 0 0 1rem;
+    margin: 0.5rem 0 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scorer-expanded li {
+    font-size: 0.9rem;
+    color: var(--clr-slate400);
+    margin-bottom: 0.3rem;
+}
+
+/* If you have any other elements with grey backgrounds, adjust them similarly */
+
+@media (max-width: 768px) {
+    .scorer-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .scorer-name {
+        margin-bottom: 0.5rem;
+    }
+
+    .scorer-details {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    .scorer-item {
+        padding: 0.5rem;
+    }
+
+    .scorer-name {
+        font-size: 0.9rem;
+    }
+
+    .scorer-tag, .scorer-goals {
+        font-size: 0.75rem;
+    }
+}
+
+/* Set the background color for the entire page */
+body {
+    background-color: #0a0a0a; /* Very dark grey, almost black */
+    color: #e0e0e0; /* Light grey for general text */
+}
+
+/* Adjust container backgrounds */
+.grid-item,
+.match-item,
+.scorer-item {
+    background-color: #111111; /* Slightly lighter than the body background */
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effects for interactive elements */
+.scorer-item:hover,
+.match-item:hover {
+    background-color: #1a1a1a; /* Slightly lighter on hover */
+}
+
+/* Active state for scorer items when expanded */
+.scorer-item.active {
+    background-color: #202020;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--clr-accent);
+}
+
+/* Links */
+a {
+    color: #4a90e2; /* A muted blue for links */
+}
+
+a:hover {
+    color: #5da0ff; /* Lighter blue on hover */
+}
+
+/* Match and scorer details */
+.match-date,
+.team,
+.scorer-name {
+    color: #ffffff; /* White for important text */
+}
+
+.vs,
+.scorer-goals,
+.scorer-expanded li {
+    color: #b0b0b0; /* Light grey for less prominent text */
+}
+
+/* Competition tags */
+.scorer-tag,
+.match-tag {
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Borders */
+.scorer-expanded {
+    border-top: 1px solid #2a2a2a; /* Dark grey border */
+}
+
+/* Buttons (if any) */
+button,
+.view-more-btn {
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover,
+.view-more-btn:hover {
+    background-color: #3a3a3a;
+}
+
+/* Adjust other elements as needed */
+
+:root {
+    --clr-accent: #4CAF50; /* Make sure this matches your accent color */
+    --clr-dark: #0a0a0a;
+    --clr-light: #e0e0e0;
+    --clr-gray: #333333; /* Adjust this to match your desired gray color */
+}
+
+.news-updates {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-preview {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.news-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--clr-light);
+}
+
+.news-excerpt {
+    font-size: 0.9rem;
+    color: var(--clr-slate400);
+    margin-bottom: 1rem;
+}
+
+.btn-secondary,
+.view-more-btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary:hover,
+.view-more-btn:hover {
+    background-color: var(--clr-gray);
+    color: var(--clr-light);
+}
+
+.view-more-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Hamburger menu styles for football page */
+.navbar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    outline: none;
+}
+
+.navbar-toggle:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.navbar-toggle:not(:focus-visible) {
+    outline: none;
+}
+
+/* Remove highlight on touch devices */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Hamburger icon styles */
+.hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 30px;
+    height: 2px;
+    background-color: var(--clr-light);
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+}
+
+.hamburger-inner::before {
+    top: -8px;
+}
+
+.hamburger-inner::after {
+    bottom: -8px;
+}
+
+/* Active state */
+.navbar-toggle.active .hamburger-inner {
+    transform: rotate(45deg);
+}
+
+.navbar-toggle.active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+}
+
+.navbar-toggle.active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+}
+
+/* VC Cup Page Styles */
+.hero {
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-dark);
+}
+
+.hero-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-slide h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.back-button {
+    position: fixed;
+    top: calc(var(--navbar-height) + 20px);
+    left: 20px;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.back-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button a:hover {
+    background-color: var(--clr-accent-dark);
+}
+
+@media (max-width: 768px) {
+    .hero-slide h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slide h1 {
+        font-size: 2rem;
+    }
+}
+
+.competition-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.competition-link:hover {
+    color: var(--clr-accent);
+}
+
+.match-tag, .scorer-tag {
+    text-decoration: none;
+}
+
+/* Competition Pages Styles */
+.hero {
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-dark);
+}
+
+.hero-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-slide h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.back-button {
+    position: fixed;
+    top: calc(var(--navbar-height) + 20px);
+    left: 20px;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.back-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button a:hover {
+    background-color: var(--clr-accent-dark);
+}
+
+@media (max-width: 768px) {
+    .hero-slide h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slide h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Competition link styles */
+.competition-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.competition-link:hover {
+    color: var(--clr-accent);
+}
+
+.match-tag, .scorer-tag {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
