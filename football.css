@@ -927,3 +927,17 @@ button:hover,
     }
 }
 
+/* Update hamburger menu thickness */
+.football-page .navbar-toggle .hamburger-inner,
+.football-page .navbar-toggle .hamburger-inner::before,
+.football-page .navbar-toggle .hamburger-inner::after {
+    height: 3px; /* Increased thickness to match other pages */
+    background-color: var(--clr-light);
+}
+
+.football-page .navbar-toggle.is-active .hamburger-inner,
+.football-page .navbar-toggle.is-active .hamburger-inner::before,
+.football-page .navbar-toggle.is-active .hamburger-inner::after {
+    height: 3px; /* Maintain thickness when active */
+    background-color: var(--clr-light);
+}

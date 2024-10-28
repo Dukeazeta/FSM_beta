@@ -1,0 +1,117 @@
+/* Theme colors to match home page exactly */
+:root {
+    --clr-dark: #0a0a0a;
+    --clr-slate800: #1a1a1a;
+    --clr-slate600: #2a2a2a;
+    --clr-slate400: #717171;
+    --clr-light: #ffffff;
+    --clr-accent: #e6c200; /* Darker yellow for main color */
+    --clr-accent-light: #ffd700; /* Lighter yellow for hover */
+}
+
+/* Navbar styles */
+.highlights-page .navbar {
+    background-color: var(--clr-dark);
+}
+
+/* Main content background */
+.highlights-page {
+    background-color: var(--clr-dark);
+}
+
+/* Section backgrounds */
+.highlights {
+    background-color: var(--clr-dark);
+    padding: 4rem 0;
+}
+
+/* Highlight cards */
+.highlight-card {
+    background-color: var(--clr-slate600);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section titles */
+.section-title {
+    color: var(--clr-light);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--clr-accent);
+    margin: 0.75rem auto;
+}
+
+/* Button styles */
+.view-more-btn,
+.read-more-btn {
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.view-more-btn:hover,
+.read-more-btn:hover {
+    background-color: var(--clr-accent-light); /* Lighter yellow on hover */
+}
+
+/* Active nav link and hover states */
+.highlights-page .navbar-links a.active {
+    color: var(--clr-accent) !important;
+}
+
+.highlights-page .navbar-links a:hover {
+    color: var(--clr-accent-light) !important;
+}
+
+.highlights-page .navbar-links a::after {
+    background-color: var(--clr-accent);
+}
+
+/* Footer hover states */
+.footer-social .social-icon:hover,
+.footer-contact a:hover {
+    color: var(--clr-accent-light);
+}
+
+/* Hamburger menu */
+.highlights-page .navbar-toggle .hamburger-inner,
+.highlights-page .navbar-toggle .hamburger-inner::before,
+.highlights-page .navbar-toggle .hamburger-inner::after {
+    height: 3px;
+    background-color: var(--clr-light);
+}
+
+.highlights-page .navbar-toggle.is-active .hamburger-inner,
+.highlights-page .navbar-toggle.is-active .hamburger-inner::before,
+.highlights-page .navbar-toggle.is-active .hamburger-inner::after {
+    height: 3px;
+    background-color: var(--clr-light);
+}
+
+/* Ensure active state in mobile menu also uses accent color */
+@media (max-width: 768px) {
+    .highlights-page .navbar-links a.active {
+        color: var(--clr-accent) !important;
+        background-color: rgba(230, 194, 0, 0.1);
+    }
+    
+    .highlights-page .navbar-links a:hover {
+        color: var(--clr-accent-light) !important;
+    }
+}
