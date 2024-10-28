@@ -1,0 +1,306 @@
+/* Theme colors */
+:root {
+    --clr-primary: #0066cc; /* Main blue */
+    --clr-primary-dark: #004d99; /* Darker blue for hover */
+    --clr-primary-light: #1a8cff; /* Lighter blue for accents */
+    --clr-dark: #0a0a0a;
+    --clr-slate800: #1a1a1a;
+    --clr-slate600: #2a2a2a;
+    --clr-slate400: #717171;
+    --clr-light: #ffffff;
+}
+
+/* Hero Section */
+.hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('assets/basketball-hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: calc(var(--navbar-height) - 20px);
+}
+
+.basketball-title {
+    color: var(--clr-primary) !important;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    color: var(--clr-primary);
+    font-size: 1.4rem;
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+}
+
+/* Teams Section */
+.teams {
+    padding: 4rem 0;
+    background-color: var(--clr-dark);
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.team-card {
+    background-color: var(--clr-slate600);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.team-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.team-info h3 {
+    color: var(--clr-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-info p {
+    color: var(--clr-slate400);
+    font-size: 1rem;
+}
+
+/* Upcoming Games Section */
+.upcoming-games {
+    padding: 4rem 0;
+    background-color: var(--clr-slate800);
+}
+
+.game-card {
+    background-color: var(--clr-slate600);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.game-date {
+    background-color: var(--clr-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.game-date .day {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--clr-light);
+}
+
+.game-date .month {
+    display: block;
+    font-size: 1rem;
+    color: var(--clr-light);
+}
+
+.game-details h3 {
+    color: var(--clr-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.game-info {
+    color: var(--clr-slate400);
+    font-size: 0.9rem;
+}
+
+.game-info i {
+    color: var(--clr-primary);
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+.game-info i:first-child {
+    margin-left: 0;
+}
+
+/* News Section */
+.news {
+    padding: 4rem 0;
+    background-color: var(--clr-dark);
+}
+
+.news-card {
+    background-color: var(--clr-slate600);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.news-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 2rem;
+}
+
+.news-title {
+    color: var(--clr-light);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.news-excerpt {
+    color: var(--clr-slate400);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--clr-slate400);
+}
+
+/* Buttons */
+.read-more-btn,
+.view-all-btn {
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover,
+.view-all-btn:hover {
+    background-color: var(--clr-primary-dark);
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    color: var(--clr-primary);
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--clr-primary);
+    margin: 0.75rem auto;
+}
+
+/* Back Button */
+.back-button a {
+    background-color: var(--clr-primary);
+}
+
+.back-button a:hover {
+    background-color: var(--clr-primary-dark);
+}
+
+/* Navbar and Footer Customization */
+.basketball-page .navbar-links a:hover,
+.basketball-page .navbar-links a.active {
+    color: var(--clr-primary) !important;
+}
+
+.basketball-page .navbar-links a::after {
+    background-color: var(--clr-primary);
+}
+
+.basketball-page .footer-social .social-icon:hover,
+.basketball-page .footer-contact a:hover {
+    color: var(--clr-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        height: 30vh;
+        margin-top: calc(var(--navbar-height) - 25px);
+    }
+
+    .basketball-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .team-card img {
+        height: 250px;
+    }
+
+    .game-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .game-info i {
+        margin-left: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 25vh;
+        margin-top: calc(var(--navbar-height) - 30px);
+    }
+
+    .basketball-title {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .team-card img {
+        height: 200px;
+    }
+
+    .news-content {
+        padding: 1.5rem;
+    }
+}
