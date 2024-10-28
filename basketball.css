@@ -41,10 +41,224 @@
     letter-spacing: 1px;
 }
 
-/* Updated Teams Section Styles */
-.teams {
+/* Competitions Section */
+.competitions {
     padding: 4rem 0;
     background-color: var(--clr-dark);
+}
+
+.competitions-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.competition-item {
+    background-color: var(--clr-slate600);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+    position: relative; /* For status positioning */
+}
+
+.competition-item:hover {
+    transform: translateX(10px);
+}
+
+.competition-item h3 {
+    color: var(--clr-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.competition-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem; /* Add space for status */
+}
+
+.competition-info p {
+    color: var(--clr-slate400);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.competition-info i {
+    color: var(--clr-primary);
+}
+
+.competition-status {
+    text-align: right;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--clr-slate800);
+}
+
+.competition-status span {
+    display: inline-block;
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .competition-item {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .competition-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .competition-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .competition-status span {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .competition-item {
+        padding: 1rem;
+    }
+
+    .competition-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .competition-info p {
+        font-size: 0.8rem;
+    }
+
+    .competition-status {
+        text-align: center;
+    }
+}
+
+/* Update section backgrounds for new order */
+.upcoming-games {
+    background-color: var(--clr-slate800);
+}
+
+.competitions {
+    background-color: var(--clr-dark);
+}
+
+.teams {
+    background-color: var(--clr-slate800);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .competitions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .competition-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .competition-card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .competitions-grid {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+    }
+
+    .competition-card {
+        padding: 1.5rem;
+    }
+
+    .competition-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .competition-status {
+        font-size: 0.8rem;
+    }
+}
+
+/* Upcoming Games Section */
+.upcoming-games {
+    padding: 4rem 0;
+    background-color: var(--clr-slate800);
+}
+
+.game-card {
+    background-color: var(--clr-slate600);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.game-date {
+    background-color: var(--clr-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.game-date .day {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--clr-light);
+}
+
+.game-date .month {
+    display: block;
+    font-size: 1rem;
+    color: var(--clr-light);
+}
+
+.game-details h3 {
+    color: var(--clr-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.game-info {
+    color: var(--clr-slate400);
+    font-size: 0.9rem;
+}
+
+.game-info i {
+    color: var(--clr-primary);
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+.game-info i:first-child {
+    margin-left: 0;
+}
+
+/* School Teams Section */
+.teams {
+    padding: 4rem 0;
+    background-color: var(--clr-slate800);
 }
 
 .team-card {
@@ -149,65 +363,6 @@
     color: var(--clr-primary);
     font-size: 0.9rem;
     font-weight: 600;
-}
-
-/* Upcoming Games Section */
-.upcoming-games {
-    padding: 4rem 0;
-    background-color: var(--clr-slate800);
-}
-
-.game-card {
-    background-color: var(--clr-slate600);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    padding: 1.5rem;
-    max-width: 800px;
-    margin: 0 auto;
-    gap: 2rem;
-}
-
-.game-date {
-    background-color: var(--clr-primary);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    min-width: 100px;
-}
-
-.game-date .day {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--clr-light);
-}
-
-.game-date .month {
-    display: block;
-    font-size: 1rem;
-    color: var(--clr-light);
-}
-
-.game-details h3 {
-    color: var(--clr-primary);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.game-info {
-    color: var(--clr-slate400);
-    font-size: 0.9rem;
-}
-
-.game-info i {
-    color: var(--clr-primary);
-    margin-right: 0.5rem;
-    margin-left: 1rem;
-}
-
-.game-info i:first-child {
-    margin-left: 0;
 }
 
 /* News Section */
@@ -488,3 +643,4 @@
         font-size: 0.9rem;
     }
 }
+
