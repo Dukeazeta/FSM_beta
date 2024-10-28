@@ -471,3 +471,20 @@
 .read-more-btn:hover {
     background-color: var(--clr-primary-dark);
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .view-all-btn,
+    .read-more-btn {
+        padding: 0.7rem 1.3rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .view-all-btn,
+    .read-more-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
