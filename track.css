@@ -1,0 +1,548 @@
+:root {
+    --clr-primary: #ff0000;
+    --clr-primary-dark: #cc0000;
+    --clr-primary-light: #ff3333;
+}
+
+/* Hero Section */
+.hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('assets/track-hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--clr-light);
+    margin-top: calc(var(--navbar-height) - 20px); /* Reduced margin */
+}
+
+.track-title {
+    color: var(--clr-primary) !important; /* Red color for the main title */
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    color: var(--clr-light);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    color: var(--clr-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Events Section */
+.events {
+    padding: 3rem 0;
+    background-color: var(--clr-slate800);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.event-card {
+    background-color: var(--clr-slate600);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-date {
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 100px;
+}
+
+.event-date .day {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.event-date .month {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.event-details {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.event-details h3 {
+    color: var(--clr-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.event-info {
+    color: var(--clr-slate400);
+    font-size: 0.9rem;
+}
+
+.event-info i {
+    color: var(--clr-primary);
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+.event-info i:first-child {
+    margin-left: 0;
+}
+
+/* News Section */
+.news {
+    padding: 3rem 0;
+    background-color: var(--clr-slate800);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    color: var(--clr-primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--clr-primary);
+    margin: 0.75rem auto;
+}
+
+/* Back Button */
+.back-button a {
+    background-color: var(--clr-primary);
+}
+
+.back-button a:hover {
+    background-color: var(--clr-primary-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        height: 30vh;
+        margin-top: calc(var(--navbar-height) - 25px); /* Further reduced for tablets */
+    }
+
+    .track-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .athletes, .events, .news {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 25vh;
+        margin-top: calc(var(--navbar-height) - 30px); /* Even smaller for mobile */
+    }
+
+    .track-title {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .athletes-grid {
+        gap: 1rem;
+    }
+}
+
+/* Athletes Section */
+.athletes {
+    padding: 3rem 0;
+    background-color: var(--clr-slate800);
+}
+
+.athletes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.athlete-card {
+    background-color: var(--clr-slate600);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.athlete-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.athlete-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.athlete-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.athlete-card:hover .athlete-image img {
+    transform: scale(1.05);
+}
+
+.athlete-info {
+    padding: 1.5rem;
+}
+
+.athlete-info h3 {
+    color: var(--clr-light);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.athlete-event {
+    color: var(--clr-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.athlete-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-label {
+    color: var(--clr-slate400);
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    color: var(--clr-light);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.athlete-bio {
+    color: var(--clr-slate400);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Responsive Design for Athletes Section */
+@media (max-width: 768px) {
+    .athletes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .athlete-image {
+        height: 250px;
+    }
+
+    .athlete-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .athlete-stats {
+        padding: 0.75rem 0;
+    }
+
+    .stat-value {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .athlete-image {
+        height: 200px;
+    }
+
+    .athlete-info {
+        padding: 1rem;
+    }
+
+    .athlete-stats {
+        gap: 0.5rem;
+    }
+}
+
+/* Add subtle transitions */
+.hero, .section-title, .athlete-card {
+    transition: all 0.3s ease;
+}
+
+/* Footer styles for track page */
+.track-page .footer-social .social-icon {
+    color: var(--clr-slate400);
+    transition: color 0.3s ease;
+}
+
+.track-page .footer-social .social-icon:hover {
+    color: var(--clr-primary); /* Red hover color */
+}
+
+.track-page .footer-contact a {
+    color: var(--clr-slate400);
+    transition: color 0.3s ease;
+}
+
+.track-page .footer-contact a:hover {
+    color: var(--clr-primary); /* Red hover color */
+}
+
+/* Update footer links hover effect */
+.track-page .footer a:hover {
+    color: var(--clr-primary);
+}
+
+/* Add subtle transition for smoother hover effect */
+.track-page .footer a {
+    transition: color 0.3s ease;
+}
+
+/* Navbar styles for track page */
+.track-page .navbar-links a {
+    color: var(--clr-light);
+    transition: color 0.3s ease;
+}
+
+/* Active and hover states for navbar links */
+.track-page .navbar-links a:hover,
+.track-page .navbar-links a.active {
+    color: var(--clr-primary) !important; /* Red color for hover and active state */
+}
+
+/* Update the underline color for hover and active states */
+.track-page .navbar-links a::after {
+    background-color: var(--clr-primary) !important; /* Red underline */
+}
+
+/* Ensure the active link maintains the red color */
+.track-page .navbar-links .active {
+    color: var(--clr-primary) !important;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+    .track-page .navbar-links a:hover,
+    .track-page .navbar-links a.active {
+        color: var(--clr-primary) !important;
+        background-color: rgba(255, 0, 0, 0.1); /* Subtle red background for mobile */
+    }
+}
+
+/* News Section Styles */
+.news {
+    padding: 4rem 0;
+    background-color: var(--clr-slate800);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.news-card {
+    background-color: var(--clr-slate600);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    max-width: 800px; /* Limit width for single card */
+    margin: 0 auto 2rem; /* Center the card */
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-card img {
+    width: 100%;
+    height: 300px; /* Increased height for single card */
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 2rem;
+}
+
+.news-title {
+    color: var(--clr-light);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.news-excerpt {
+    color: var(--clr-slate400);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--clr-slate400);
+    font-size: 0.9rem;
+}
+
+/* Read More Button */
+.read-more-btn {
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: var(--clr-primary-dark);
+}
+
+/* View All Button */
+.view-all-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.view-all-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: var(--clr-primary-dark);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .news-card img {
+        height: 250px;
+    }
+
+    .news-content {
+        padding: 1.5rem;
+    }
+
+    .news-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .news {
+        padding: 3rem 0;
+    }
+
+    .news-content {
+        padding: 1rem;
+    }
+
+    .news-title {
+        font-size: 1.1rem;
+    }
+
+    .read-more-btn,
+    .view-all-btn {
+        padding: 0.7rem 1.4rem;
+    }
+
+    .news-card img {
+        height: 200px;
+    }
+}

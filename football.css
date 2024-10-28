@@ -822,11 +822,108 @@ button:hover,
     text-decoration: none;
 }
 
+/* Hero Section - matching track page exactly */
+.hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('assets/football-hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: calc(var(--navbar-height) - 20px); /* Reduced margin */
+}
 
+.hero-content {
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
 
+.football-title {
+    color: var(--clr-accent) !important;
+    font-size: 4rem; /* Increased font size */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
 
+.hero-content p {
+    color: var(--clr-accent);
+    font-size: 1.4rem; /* Increased font size */
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+}
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        height: 30vh;
+        margin-top: calc(var(--navbar-height) - 25px);
+    }
 
+    .football-title {
+        font-size: 2.5rem;
+    }
 
+    .hero-content p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+}
 
+@media (max-width: 480px) {
+    .hero {
+        height: 25vh;
+        margin-top: calc(var(--navbar-height) - 30px);
+    }
+
+    .football-title {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Section titles with increased specificity */
+.football-page .section-title,
+.leagues .section-title,
+.upcoming-matches .section-title,
+.top-scorers .section-title {
+    text-align: center;
+    color: var(--clr-accent);
+    font-size: 3rem !important; /* Forcing larger size */
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.football-page .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--clr-accent);
+    margin: 1rem auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .football-page .section-title {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .football-page .section-title {
+        font-size: 2rem !important;
+    }
+}
 

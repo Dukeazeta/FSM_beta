@@ -37,10 +37,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
+    // Add this to your existing newsData array
+    const trackNewsData = [
+        {
+            id: 'track1',
+            title: "FUPRE Athletes Break Records at Inter-Faculty Meet",
+            excerpt: "Multiple records were shattered at this year's inter-faculty athletics competition...",
+            author: "Sarah Johnson",
+            date: "April 28, 2024",
+            image: "assets/track-news1.jpg",
+            content: "Multiple records were shattered at this year's inter-faculty athletics competition, with standout performances in both track and field events. The Faculty of Science dominated the sprinting events, while Engineering showed exceptional strength in field events. Notable achievements included a new 100m record of 10.45 seconds..."
+        },
+        {
+            id: 'track2',
+            title: "New Track Equipment Arrives at FUPRE Stadium",
+            excerpt: "The university has invested in state-of-the-art track and field equipment...",
+            author: "Michael Peters",
+            date: "April 25, 2024",
+            image: "assets/track-news2.jpg",
+            content: "FUPRE's commitment to athletics excellence continues with the arrival of new professional-grade equipment. The upgrade includes electronic timing systems, high-jump mats, and throwing implements. This investment will significantly enhance training capabilities and competition standards..."
+        },
+        {
+            id: 'track3',
+            title: "Track Team Prepares for National Universities Games",
+            excerpt: "FUPRE's track and field team intensifies training for upcoming national competition...",
+            author: "David Williams",
+            date: "April 22, 2024",
+            image: "assets/track-news3.jpg",
+            content: "The university's track and field team has entered its final preparation phase for the National Universities Games. Under the guidance of head coach James Thompson, athletes are showing promising form in both sprint and endurance events. The team aims to improve upon last year's medal count..."
+        }
+    ];
+
     // Function to create news cards
     function createNewsCards() {
+        if (!newsGrid) return;
+        
         newsGrid.innerHTML = '';
-        newsData.forEach(news => {
+        let relevantNews;
+        
+        // Determine which news to show based on the current page
+        if (document.body.classList.contains('track-page')) {
+            relevantNews = trackNewsData;
+        } else {
+            relevantNews = newsData;
+        }
+        
+        relevantNews.forEach(news => {
             const card = document.createElement('div');
             card.className = 'news-card';
             card.innerHTML = `
@@ -61,10 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to display full article
     function displayArticle() {
         const urlParams = new URLSearchParams(window.location.search);
-        const articleId = urlParams.get('id');
-        const article = newsData.find(news => news.id === parseInt(articleId));
+        const articleId = parseInt(urlParams.get('id'));
+        
+        // Combine all news data
+        const allNews = [...newsData, ...trackNewsData];
+        const article = allNews.find(news => news.id === articleId);
 
-        if (article) {
+        if (article && articleTitle && articleAuthor && articleDate && articleImage && articleContent) {
             articleTitle.textContent = article.title;
             articleAuthor.textContent = `By ${article.author}`;
             articleDate.textContent = article.date;

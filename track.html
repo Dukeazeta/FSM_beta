@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Track & Field - FUPRE SPORT MEDIA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="track.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js" defer></script>
+    <script src="news.js" defer></script>
+</head>
+<body class="track-page">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <a href="index.html">
+                        <img src="assets/FUPRE FOOTBALL_LOGO.jpg" alt="FSM" class="logo-image">
+                    </a>
+                </div>
+                <button class="navbar-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+                <div class="navbar-menu">
+                    <ul class="navbar-links">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="football.html">FOOTBALL</a></li>
+                        <li><a href="#basketball">BASKETBALL</a></li>
+                        <li><a href="track.html" class="active">TRACK & FIELD</a></li>
+                        <li><a href="highlights.html">HIGHLIGHTS</a></li>
+                        <li><a href="news.html">NEWS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="back-button">
+            <a href="javascript:history.back()" aria-label="Go back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="track-title">Track & Field</h1>
+                <p>Experience the thrill of FUPRE's track and field events</p>
+            </div>
+        </section>
+
+        <!-- Athletes Section (moved up) -->
+        <section class="athletes">
+            <div class="container">
+                <h2 class="section-title">Top Athletes</h2>
+                <div class="athletes-grid">
+                    <div class="athlete-card">
+                        <div class="athlete-image">
+                            <img src="assets/athlete1.jpg" alt="John Doe">
+                        </div>
+                        <div class="athlete-info">
+                            <h3>John Doe</h3>
+                            <p class="athlete-event">100m Sprint</p>
+                            <div class="athlete-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Personal Best</span>
+                                    <span class="stat-value">10.2s</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Medals</span>
+                                    <span class="stat-value">12</span>
+                                </div>
+                            </div>
+                            <p class="athlete-bio">Current record holder for FUPRE 100m sprint. Representing the Faculty of Science.</p>
+                        </div>
+                    </div>
+
+                    <div class="athlete-card">
+                        <div class="athlete-image">
+                            <img src="assets/athlete2.jpg" alt="Jane Smith">
+                        </div>
+                        <div class="athlete-info">
+                            <h3>Jane Smith</h3>
+                            <p class="athlete-event">Long Jump</p>
+                            <div class="athlete-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Personal Best</span>
+                                    <span class="stat-value">6.5m</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Medals</span>
+                                    <span class="stat-value">8</span>
+                                </div>
+                            </div>
+                            <p class="athlete-bio">Inter-university champion representing the Faculty of Engineering.</p>
+                        </div>
+                    </div>
+
+                    <div class="athlete-card">
+                        <div class="athlete-image">
+                            <img src="assets/athlete3.jpg" alt="Mike Johnson">
+                        </div>
+                        <div class="athlete-info">
+                            <h3>Mike Johnson</h3>
+                            <p class="athlete-event">400m Hurdles</p>
+                            <div class="athlete-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Personal Best</span>
+                                    <span class="stat-value">52.3s</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Medals</span>
+                                    <span class="stat-value">15</span>
+                                </div>
+                            </div>
+                            <p class="athlete-bio">Team captain and multiple record holder from the Faculty of Technology.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section class="events">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events</h2>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">15</span>
+                            <span class="month">MAY</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Inter-Faculty Athletics Championship</h3>
+                            <p class="event-info">
+                                <i class="fas fa-clock"></i> 9:00 AM
+                                <i class="fas fa-map-marker-alt"></i> Main Stadium
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="day">20</span>
+                            <span class="month">MAY</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>FUPRE Track Meet</h3>
+                            <p class="event-info">
+                                <i class="fas fa-clock"></i> 10:00 AM
+                                <i class="fas fa-map-marker-alt"></i> Athletics Track
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news">
+            <div class="container">
+                <h2 class="section-title">Latest News</h2>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <img src="assets/track-news1.jpg" alt="Track Meet Success">
+                        <div class="news-content">
+                            <h3 class="news-title">FUPRE Athletes Break Records at Inter-Faculty Meet</h3>
+                            <p class="news-excerpt">Multiple records were shattered at this year's inter-faculty athletics competition, with standout performances in both track and field events. The Faculty of Science dominated the sprinting events...</p>
+                            <div class="news-meta">
+                                <span>April 28, 2024</span>
+                                <button onclick="window.location.href='readmore.html?id=track1'" class="read-more-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="news.html" class="view-all-btn">View All News</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-copyright">
+                © 2024 FUPRE Sport Media. All Rights Reserved.
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon" aria-label="X (formerly Twitter)">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:contact@fupresportmedia.com">contact@fupresportmedia.com</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
