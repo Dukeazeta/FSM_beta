@@ -24,7 +24,7 @@
 
 .basketball-title {
     color: var(--clr-primary) !important;
-    font-size: 4rem;
+    font-size: 3.5rem; /* Adjusted size */
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     font-weight: 700;
@@ -41,51 +41,114 @@
     letter-spacing: 1px;
 }
 
-/* Teams Section */
+/* Updated Teams Section Styles */
 .teams {
     padding: 4rem 0;
     background-color: var(--clr-dark);
 }
 
-.teams-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
-}
-
 .team-card {
     background-color: var(--clr-slate600);
     border-radius: 12px;
-    overflow: hidden;
+    padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* Team headers */
+.team-info h3 {
+    color: var(--clr-primary);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: left; /* Align to left */
+    padding-left: 1rem; /* Match padding with players-grid */
+}
+
+.team-desc {
+    color: var(--clr-slate400);
+    font-size: 1.2rem;
+    text-align: left; /* Align to left */
+    margin-bottom: 1.5rem;
+    padding-left: 1rem; /* Match padding with players-grid */
+}
+
+/* Independent scrolling containers */
+.players-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--clr-primary) var(--clr-slate800);
+    margin-bottom: 1rem; /* Space between scroll containers */
+}
+
+/* Scrollbar styling */
+.players-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.players-grid::-webkit-scrollbar-track {
+    background: var(--clr-slate800);
+    border-radius: 4px;
+}
+
+.players-grid::-webkit-scrollbar-thumb {
+    background: var(--clr-primary);
+    border-radius: 4px;
+}
+
+.players-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-primary-dark);
+}
+
+/* Player cards */
+.player {
+    flex: 0 0 auto;
+    width: 200px;
+    background-color: var(--clr-slate800);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
     transition: transform 0.3s ease;
 }
 
-.team-card:hover {
-    transform: translateY(-5px);
+.player:hover {
+    transform: translateY(-3px);
 }
 
-.team-card img {
+.player-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--clr-primary);
+}
+
+.player-image img {
     width: 100%;
-    height: 300px;
+    height: 100%;
     object-fit: cover;
 }
 
-.team-info {
-    padding: 1.5rem;
-    text-align: center;
-}
-
-.team-info h3 {
-    color: var(--clr-primary);
-    font-size: 1.5rem;
+.player-details h4 {
+    color: var(--clr-light);
+    font-size: 1rem;
     margin-bottom: 0.5rem;
 }
 
-.team-info p {
+.player-details p {
     color: var(--clr-slate400);
-    font-size: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.player-details span {
+    color: var(--clr-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 /* Upcoming Games Section */
@@ -213,7 +276,7 @@
 .section-title {
     text-align: center;
     color: var(--clr-primary);
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Reduced size */
     margin-bottom: 2.5rem;
     text-transform: uppercase;
     font-weight: 600;
@@ -280,6 +343,40 @@
     .game-info i {
         margin-left: 0.5rem;
     }
+
+    .teams-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .players-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+
+    .team-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .team-desc {
+        font-size: 1.1rem;
+    }
+
+    .player-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .player-details h4 {
+        font-size: 0.9rem;
+    }
+
+    .player-details p {
+        font-size: 0.75rem;
+    }
+
+    .player {
+        width: 180px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -303,4 +400,74 @@
     .news-content {
         padding: 1.5rem;
     }
+
+    .players-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .player {
+        padding: 0.8rem;
+    }
+
+    .player-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .team-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .team-desc {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .player {
+        width: 160px;
+    }
+}
+
+/* Update View All News button container and styling */
+.view-all-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.view-all-btn {
+    display: inline-block;
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem;
+}
+
+.view-all-btn:hover {
+    background-color: var(--clr-primary-dark);
+}
+
+/* Match read-more button style */
+.read-more-btn {
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.read-more-btn:hover {
+    background-color: var(--clr-primary-dark);
 }
