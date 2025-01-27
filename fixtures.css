@@ -24,8 +24,8 @@
 
 /* Fixtures Grid Styles */
 .fixtures-section {
-    padding: 2rem var(--container-padding);
-    max-width: var(--width-medium);
+    padding: 3rem var(--container-padding);
+    max-width: var(--width-large);
     margin: 0 auto;
 }
 
@@ -35,18 +35,26 @@
     margin: 2rem 0;
 }
 
-/* Round 1 Matches */
 .match-grid {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
+    margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
 }
 
 .match-card {
     background: var(--clr-secondary);
-    border-radius: 0.5rem;
-    padding: 1.5rem;
+    border-radius: 1rem;
+    padding: 2rem;
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .match-header {
@@ -54,17 +62,27 @@
     justify-content: space-between;
     align-items: center;
     color: var(--clr-accent);
-    font-size: 0.875rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .match-teams {
     display: grid;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .team-name {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: var(--clr-light);
+    font-weight: 600;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.team-name:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .match-info {
@@ -78,28 +96,40 @@
 /* Knockout Rounds */
 .knockout-rounds {
     display: grid;
-    gap: 3rem;
-    margin-top: 4rem;
+    gap: 4rem;
+    margin-top: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 }
 
 .round-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: var(--clr-accent);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .round-matches {
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .knockout-match {
     background: var(--clr-secondary);
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
     text-align: center;
     color: var(--clr-light);
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.knockout-match:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 /* Responsive Design */
@@ -107,8 +137,10 @@
     .match-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .knockout-rounds {
+}
+
+@media (min-width: 1200px) {
+    .match-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
