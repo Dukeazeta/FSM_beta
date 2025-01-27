@@ -205,6 +205,20 @@
     font-weight: 600;
 }
 
+.status-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.status-tag.ongoing {
+    background-color: var(--clr-accent);
+    color: var(--clr-dark);
+}
+
 /* Responsive adjustments */
 @media (min-width: 768px) {
     .team {
