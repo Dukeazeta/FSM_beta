@@ -1,0 +1,114 @@
+/* Competition Header */
+.competition-header {
+    padding: 2rem var(--container-padding);
+    margin-bottom: 2rem;
+    background-color: var(--clr-secondary);
+}
+
+.header-content {
+    max-width: var(--width-medium);
+    margin: 0 auto;
+}
+
+.header-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--clr-light);
+    margin-bottom: 0.5rem;
+}
+
+.header-subtitle {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: var(--clr-accent);
+}
+
+/* Fixtures Grid Styles */
+.fixtures-section {
+    padding: 2rem var(--container-padding);
+    max-width: var(--width-medium);
+    margin: 0 auto;
+}
+
+.fixtures-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Round 1 Matches */
+.match-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.match-card {
+    background: var(--clr-secondary);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--clr-accent);
+    font-size: 0.875rem;
+}
+
+.match-teams {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.team-name {
+    font-size: 1.125rem;
+    color: var(--clr-light);
+}
+
+.match-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--clr-slate400);
+}
+
+/* Knockout Rounds */
+.knockout-rounds {
+    display: grid;
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.round-title {
+    font-size: 1.5rem;
+    color: var(--clr-accent);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.round-matches {
+    display: grid;
+    gap: 1rem;
+}
+
+.knockout-match {
+    background: var(--clr-secondary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    color: var(--clr-light);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .match-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .knockout-rounds {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
