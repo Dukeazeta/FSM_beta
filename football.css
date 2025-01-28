@@ -861,7 +861,7 @@ button:hover,
 /* Hero Section - matching track page exactly */
 .hero {
     height: 40vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('assets/football-hero.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -877,17 +877,13 @@ button:hover,
 }
 
 .football-title {
-    color: var(--clr-accent) !important;
+    color: var(--clr-light) !important;
     font-size: 4rem; /* Increased font size */
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: 2px;
+    margin-bottom: 1rem;
 }
 
 .hero-content p {
-    color: var(--clr-accent);
+    color: var(--clr-light);
     font-size: 1.4rem; /* Increased font size */
     font-weight: 500;
     max-width: 800px;
