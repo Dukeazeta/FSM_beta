@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /fonts/
+Disallow: /geistFont/
+
+Sitemap: https://fsm.fupre.edu.ng/sitemap.xml

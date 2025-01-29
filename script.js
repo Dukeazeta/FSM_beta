@@ -124,26 +124,37 @@ document.addEventListener('DOMContentLoaded', () => {
         startSlideshow();
     }
 
-    // Initialize components
-    initializeCarousel();
-
-    // Event listeners for carousel buttons
-    if (prevButton && nextButton) {
-        prevButton.addEventListener('click', () => {
-            previousSlide();
-            resetSlideshow();
-        });
-
-        nextButton.addEventListener('click', () => {
-            nextSlide();
-            resetSlideshow();
-        });
+    // Utility functions
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
     }
 
-    const highlightCards = document.querySelectorAll('.highlight-card');
+    // Error handling wrapper
+    function safeExecute(fn, fallback = () => {}) {
+        try {
+            fn();
+        } catch (error) {
+            console.error('An error occurred:', error);
+            fallback();
+        }
+    }
 
+    // Improved window resize handler
+    const debouncedUpdateHighlightVisibility = debounce(updateHighlightVisibility, 250);
+
+    // Highlight cards visibility
     function updateHighlightVisibility() {
         const screenWidth = window.innerWidth;
+
+        const highlightCards = document.querySelectorAll('.highlight-card');
 
         highlightCards.forEach((card, index) => {
             if (screenWidth <= 768) {
@@ -167,11 +178,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initial check
-    updateHighlightVisibility();
+    window.addEventListener('resize', debouncedUpdateHighlightVisibility);
 
-    // Update on window resize
-    window.addEventListener('resize', updateHighlightVisibility);
+    // Initialize all components safely
+    safeExecute(() => {
+        initializeCarousel();
+        updateHighlightVisibility();
+    });
+
+    // Event listeners for carousel buttons
+    if (prevButton && nextButton) {
+        prevButton.addEventListener('click', () => {
+            previousSlide();
+            resetSlideshow();
+        });
+
+        nextButton.addEventListener('click', () => {
+            nextSlide();
+            resetSlideshow();
+        });
+    }
 
     // Add this new code to handle active state of navbar links
     const currentPage = window.location.pathname.split('/').pop();
