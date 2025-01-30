@@ -155,14 +155,13 @@
 .match-item {
     position: relative;
     z-index: 5;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: #111;
     border-radius: 20px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 179, 0, 0.1);
+    border: 2px solid var(--football-accent);
+    box-shadow: 0 8px 24px rgba(0, 179, 0, 0.15);
 }
 
 .match-item:hover {
@@ -179,30 +178,40 @@
 }
 
 .match-teams {
-    background: rgba(255, 255, 255, 0.03);
+    background: #111;
     border-radius: 15px;
-    padding: 1.5rem;
-    margin: 1rem 0;
+    padding: 2rem;
+    margin: 2rem 0;
+    background: #111;
+    border-radius: 15px;
+    border: 1px solid var(--football-accent);
 }
 
 .team {
-    font-size: clamp(0.8rem, 2vw, 0.9rem);
-    font-weight: 500;
-    color: var(--clr-light);
+    flex: 1;
     text-align: center;
-    margin: 0.2rem;
-    padding: 0.2rem 0.4rem;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    flex: 1 1 45%; /* Allow two teams per row on larger screens */
-    word-break: break-word; /* Allow long words to break */
+    padding: 1rem;
+    background: #1a1a1a;
+    border-radius: 12px;
+    color: var(--clr-light);
+    font-size: 1.2rem;
+    font-weight: 500;
+    max-width: 300px;
+    margin: 0 1rem;
 }
 
 .vs {
-    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
-    color: rgba(255, 255, 255, 0.7); /* Less prominent text */
-    margin: 0.2rem;
-    flex: 0 0 auto;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--football-accent);
+    margin: 0 2rem;
+}
+
+.match-venue {
+    margin: 1.5rem 0;
+    color: var(--clr-light);
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 .match-tag {
@@ -284,7 +293,7 @@
 
 .view-more-container {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .view-more-btn {
@@ -481,6 +490,10 @@ a:hover {
 }
 
 /* Competition tags */
+.match-tag, .scorer-tag {
+    text-decoration: none;
+}
+
 .match-tag {
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
@@ -516,6 +529,67 @@ a:hover {
 /* Borders */
 .scorer-expanded {
     border-top: 1px solid #2a2a2a; /* Dark grey border */
+}
+
+/* Button and Interactive Elements */
+.btn-secondary,
+.match-tag,
+.view-button,
+.view-more-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--clr-dark);
+    background-color: var(--football-accent);
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.btn-secondary:hover,
+.match-tag:hover,
+.view-button:hover,
+.view-more-btn:hover {
+    background-color: var(--football-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 179, 0, 0.2);
+}
+
+.btn-secondary:active,
+.match-tag:active,
+.view-button:active,
+.view-more-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 179, 0, 0.1);
+}
+
+/* Match Tag Specific Styles */
+.match-tag.Unity {
+    background: var(--football-accent);
+    color: var(--clr-dark);
+}
+
+.match-tag.Unity:hover {
+    background: var(--football-accent-dark);
+}
+
+/* Team Hover Effect */
+.team {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.team:hover {
+    border-color: var(--football-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 179, 0, 0.1);
 }
 
 /* Buttons (if any) */
@@ -596,46 +670,6 @@ a:hover {
     font-size: 0.9rem;
     color: var(--clr-slate400);
     margin-bottom: 1rem;
-}
-
-.btn-secondary,
-.view-button,
-.view-more-btn {
-    position: relative;
-    z-index: 15;
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--clr-dark);
-    background-color: var(--football-accent);
-    border: none;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.btn-secondary:hover,
-.view-button:hover,
-.view-more-btn:hover {
-    background-color: var(--football-accent-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 179, 0, 0.2);
-}
-
-.btn-secondary:active,
-.view-button:active,
-.view-more-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0, 179, 0, 0.1);
-}
-
-.view-more-container {
-    text-align: center;
-    margin-top: 1rem;
 }
 
 /* Hamburger menu styles for football page */
@@ -721,17 +755,16 @@ a:hover {
     width: 100%;
     min-height: 60vh;
     padding: 4rem 2rem;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+    background: var(--clr-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .today-matches {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     z-index: 20;
 }
@@ -746,25 +779,22 @@ a:hover {
 
 .match-card {
     position: relative;
-    background: rgba(0, 25, 0, 0.7);
+    background: #111;
     border-radius: 20px;
     padding: 2.5rem;
     margin: 0 auto;
-    border: 1px solid rgba(0, 179, 0, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 179, 0, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    max-width: 600px;
+    border: 2px solid var(--football-accent);
+    box-shadow: 0 8px 24px rgba(0, 179, 0, 0.15);
+    max-width: 800px;
     z-index: 25;
 }
 
 .match-time {
-    font-size: 2.2rem;
+    font-size: 3rem;
     font-weight: bold;
     color: var(--football-accent);
     text-align: center;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 1.5rem 0;
 }
 
 .match-teams {
@@ -772,8 +802,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin: 1.5rem 0;
-    font-size: 1.5rem;
+    margin: 2rem 0;
 }
 
 .match-teams .team {
@@ -959,7 +988,7 @@ a:hover {
 
 /* Hero Section - matching track page exactly */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('../assets/football-hero.jpg');
+    background: var(--clr-dark);
     background-size: cover;
     background-position: center;
     min-height: 400px;
@@ -974,7 +1003,7 @@ a:hover {
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.4);
+    background: #111;
     backdrop-filter: blur(8px);
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -991,7 +1020,7 @@ a:hover {
 }
 
 .match-card {
-    background: rgba(255, 255, 255, 0.15);
+    background: #111;
     padding: 2rem;
     border-radius: 10px;
     color: white;
@@ -1241,9 +1270,7 @@ a:hover {
 }
 
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('../assets/football-hero.jpg');
-    background-size: cover;
-    background-position: center;
+    background: var(--clr-dark);
     color: white;
     padding: 4rem 2rem;
     text-align: center;
@@ -1305,9 +1332,7 @@ a:hover {
 .match-display {
     position: relative;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: #111;
     border-radius: 20px;
     padding: 2rem;
     box-shadow: 0 8px 32px rgba(0, 179, 0, 0.1);
@@ -1512,4 +1537,149 @@ a:hover {
 .navbar {
     position: fixed;
     z-index: 1000;
+}
+
+/* Match Teams Layout */
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    margin: 2rem 0;
+    background: #111;
+    border-radius: 15px;
+    border: 1px solid var(--football-accent);
+}
+
+.team {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    background: #1a1a1a;
+    border-radius: 12px;
+    color: var(--clr-light);
+    font-size: 1.2rem;
+    font-weight: 500;
+    max-width: 300px;
+    margin: 0 1rem;
+}
+
+.vs {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--football-accent);
+    margin: 0 2rem;
+}
+
+/* View More Container */
+.view-more-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Clean up any remaining backdrop filters */
+.match-item,
+.match-card,
+.today-matches,
+.hero-content {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Ensure consistent spacing */
+.grid-item {
+    background: #111;
+    border: 1px solid var(--football-accent);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.match-venue {
+    margin: 1.5rem 0;
+    color: var(--clr-light);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Match Card - Wider Layout */
+.match-card {
+    position: relative;
+    background: #111;
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    margin: 0 auto;
+    border: 2px solid var(--football-accent);
+    box-shadow: 0 8px 24px rgba(0, 179, 0, 0.15);
+    max-width: 1200px;
+    z-index: 25;
+}
+
+/* Match Time Display - More Compact */
+.match-time {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--football-accent);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* Match Teams Layout - Horizontal Spread */
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background: #111;
+    border-radius: 15px;
+    border: 1px solid var(--football-accent);
+}
+
+.team {
+    flex: 0 1 auto;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: #1a1a1a;
+    border-radius: 12px;
+    color: var(--clr-light);
+    font-size: 1.2rem;
+    font-weight: 500;
+    min-width: 200px;
+}
+
+.vs {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--football-accent);
+    flex: 0 0 auto;
+}
+
+/* Venue - More Compact */
+.match-venue {
+    margin: 1rem 0;
+    color: var(--clr-light);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Button Container - Horizontal Layout */
+.match-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* Adjust hero height */
+.hero {
+    min-height: 50vh;
+    padding: 2rem;
+}
+
+/* Make today's matches container wider */
+.today-matches {
+    max-width: 1400px;
+    padding: 0 2rem;
 }
