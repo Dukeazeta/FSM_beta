@@ -532,7 +532,7 @@ a:hover {
 }
 
 /* Button and Interactive Elements */
-.btn-secondary,
+.match-meta .btn-secondary,
 .match-tag,
 .view-button,
 .view-more-btn {
@@ -553,7 +553,7 @@ a:hover {
     text-align: center;
 }
 
-.btn-secondary:hover,
+.match-meta .btn-secondary:hover,
 .match-tag:hover,
 .view-button:hover,
 .view-more-btn:hover {
@@ -562,7 +562,7 @@ a:hover {
     box-shadow: 0 4px 12px rgba(0, 179, 0, 0.2);
 }
 
-.btn-secondary:active,
+.match-meta .btn-secondary:active,
 .match-tag:active,
 .view-button:active,
 .view-more-btn:active {
@@ -1682,4 +1682,466 @@ a:hover {
 .today-matches {
     max-width: 1400px;
     padding: 0 2rem;
+}
+
+/* Adjusting team spacing to be closer together */
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background: #111;
+    border-radius: 12px;
+}
+
+.team {
+    flex: 0 1 auto;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background: #1a1a1a;
+    border-radius: 8px;
+    color: var(--clr-light);
+    font-size: 1rem;
+    font-weight: 500;
+    min-width: 140px;
+    max-width: 200px;
+}
+
+.vs {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--football-accent);
+    flex: 0 0 auto;
+    margin: 0 0.5rem;
+}
+
+/* Adjust match card width */
+.match-card {
+    max-width: 700px;
+    padding: 1.5rem;
+}
+
+/* Make container slightly less wide */
+.today-matches {
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+/* Adjust time display */
+.match-time {
+    font-size: 2rem;
+    margin: 0.75rem 0;
+}
+
+/* Adjust venue text */
+.match-venue {
+    font-size: 0.9rem;
+    margin: 0.75rem 0;
+}
+
+/* Consistent green colors */
+:root {
+    --clr-accent: #4CAF50; /* Make sure this matches your accent color */
+    --clr-dark: #0a0a0a;
+    --clr-light: #e0e0e0;
+    --clr-gray: #333333; /* Adjust this to match your desired gray color */
+    --football-accent: #00b300;      /* Bright green */
+    --football-accent-dark: #008000; /* Darker green for hover */
+}
+
+.match-meta .btn-secondary,
+.match-tag,
+.view-button,
+.view-more-btn,
+.view-stats {
+    background-color: var(--football-accent) !important;
+    color: var(--clr-dark) !important;
+}
+
+.match-meta .btn-secondary:hover,
+.match-tag:hover,
+.view-button:hover,
+.view-more-btn:hover,
+.view-stats:hover {
+    background-color: var(--football-accent-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 179, 0, 0.2);
+}
+
+.match-meta .btn-secondary:active,
+.match-tag:active,
+.view-button:active,
+.view-more-btn:active,
+.view-stats:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 179, 0, 0.1);
+}
+
+/* Ensure view stats button matches */
+.view-stats {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* News and Footer Buttons */
+.read-more,
+.view-all-news,
+.news-link,
+.footer-link:hover {
+    background-color: var(--football-accent) !important;
+    color: var(--clr-dark) !important;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.read-more:hover,
+.view-all-news:hover,
+.news-link:hover {
+    background-color: var(--football-accent-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 179, 0, 0.2);
+}
+
+/* Quick Links Section */
+.quick-links h3,
+.tournaments h3 {
+    color: var(--football-accent);
+    margin-bottom: 1rem;
+}
+
+.quick-links a:hover,
+.tournaments a:hover {
+    color: var(--football-accent);
+}
+
+/* Footer Links */
+.footer-links a {
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--football-accent);
+}
+
+/* Footer Social Icons */
+.social-links a:hover {
+    color: var(--football-accent);
+    transform: translateY(-2px);
+}
+
+/* Section Headings */
+.quick-links,
+.tournaments {
+    padding: 2rem 0;
+}
+
+.quick-links h2,
+.tournaments h2 {
+    color: var(--football-accent);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Footer Navigation */
+.footer-nav a {
+    color: var(--clr-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--football-accent);
+}
+
+/* Tournament Links */
+.tournament-link {
+    color: var(--clr-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.5rem 0;
+}
+
+.tournament-link:hover {
+    color: var(--football-accent);
+    transform: translateX(5px);
+}
+
+/* View All News Button specific */
+.view-all-news {
+    margin: 2rem auto;
+    display: block;
+    max-width: 200px;
+}
+
+/* Consistent Button Styles */
+.btn-secondary,
+.match-tag.Unity,
+.view-button,
+.view-more-btn {
+    background-color: var(--football-accent) !important;
+    color: var(--clr-dark) !important;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.btn-secondary:hover,
+.match-tag.Unity:hover,
+.view-button:hover,
+.view-more-btn:hover {
+    background-color: var(--football-accent-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 179, 0, 0.2);
+}
+
+/* News Section Buttons */
+.news-preview .btn-secondary,
+.view-more-container .btn-secondary {
+    background-color: var(--football-accent) !important;
+    color: var(--clr-dark) !important;
+    margin-top: 1rem;
+}
+
+.news-preview .btn-secondary:hover,
+.view-more-container .btn-secondary:hover {
+    background-color: var(--football-accent-dark) !important;
+}
+
+/* Quick Links and Footer */
+.quick-links h2,
+.tournaments h2,
+.footer-links h2 {
+    color: var(--football-accent);
+    margin-bottom: 1.5rem;
+}
+
+.quick-links a:hover,
+.tournaments a:hover,
+.footer-links a:hover {
+    color: var(--football-accent);
+}
+
+/* Footer specific */
+.footer-nav a {
+    color: var(--clr-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.footer-nav a:hover {
+    color: var(--football-accent);
+}
+
+/* Match Display */
+.today-matches h2 {
+    color: var(--clr-light);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.match-time {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--football-accent);
+    text-align: center;
+    margin: 0.75rem 0;
+}
+
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background: #111;
+    border-radius: 12px;
+}
+
+.team {
+    flex: 0 1 auto;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background: #1a1a1a;
+    border-radius: 8px;
+    color: var(--clr-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-width: 120px;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vs {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--football-accent);
+    flex: 0 0 auto;
+    margin: 0 0.5rem;
+}
+
+.match-venue {
+    font-size: 0.85rem;
+    margin: 0.75rem 0;
+    color: var(--clr-light);
+    opacity: 0.8;
+}
+
+/* Button Layout */
+.match-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-secondary,
+.match-tag.Unity {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+    min-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* News buttons */
+.news-preview .btn-secondary,
+.view-more-container .btn-secondary {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Match Header */
+.match-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.match-header h2 {
+    color: var(--clr-light);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.match-header .match-tag.Unity {
+    font-size: 0.8rem;
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: var(--football-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    font-weight: 600;
+    min-width: auto;
+}
+
+.match-header .match-tag.Unity:hover {
+    background-color: var(--football-accent-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 179, 0, 0.2);
+}
+
+/* Adjust match card spacing */
+.match-card {
+    padding: 1.5rem;
+    margin-top: 0;
+}
+
+/* Update button styles */
+.match-meta .btn-secondary {
+    font-size: 0.8rem;
+    padding: 0.4rem 1.2rem;
+    min-width: 90px;
+}
+
+/* Remove old margin from h2 */
+.today-matches h2 {
+    margin: 0;
+}
+
+/* Match Meta Section */
+.match-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.match-meta .btn-secondary {
+    font-size: 0.8rem;
+    padding: 0.4rem 1.5rem;
+    min-width: 120px;
+    margin: 0 auto;
+}
+
+/* View More Container */
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    width: 100%;
+}
+
+.view-more-container .btn-secondary {
+    font-size: 0.8rem;
+    padding: 0.4rem 1.5rem;
+    min-width: 120px;
+    margin: 0 auto;
+}
+
+/* Remove any old competition styles */
+.match-competition {
+    display: none;
 }
