@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Match Stats - FUPRE SPORT MEDIA</title>
+    <title>Match Statistics | FUPRE SPORT MEDIA</title>
     <link href="https://api.fontshare.com/v2/css?f[]=space-grotesk@400,300,700,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/football.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="football-page">
+<body class="football-page stats-page">
     <header>
         <nav class="navbar">
             <div class="navbar-container">
@@ -41,97 +41,202 @@
                 <i class="fas fa-arrow-left"></i>
             </a>
         </div>
-        <section class="stats-section">
-            <div class="stats-header">
-                <h2>Match Statistics</h2>
-                <div class="match-info">
-                    <span class="team-name">Maritime</span>
-                    <span class="vs">vs</span>
-                    <span class="team-name">Earth Science</span>
+        
+        <section class="stats-hero">
+            <div class="match-header">
+                <div class="competition-tag">
+                    <i class="fas fa-trophy"></i>
+                    <span>Unity Cup</span>
                 </div>
-                <div class="match-date">January 30, 2025 - 4:30 PM</div>
+                <div class="match-status">
+                    <span class="status-dot"></span>
+                    Live
+                </div>
             </div>
+            
+            <div class="match-teams-display">
+                <div class="team-block team-a">
+                    <div class="team-name">Maritime</div>
+                    <div class="score">0</div>
+                </div>
+                <div class="match-info">
+                    <div class="match-time">4:30 PM</div>
+                    <div class="match-date">January 30, 2025</div>
+                    <div class="match-venue">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Main Field
+                    </div>
+                </div>
+                <div class="team-block team-b">
+                    <div class="team-name">Earth Science</div>
+                    <div class="score">0</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-content">
+            <div class="stats-tabs">
+                <button class="tab-btn active">
+                    <i class="fas fa-chart-bar"></i>
+                    Match Stats
+                </button>
+                <button class="tab-btn">
+                    <i class="fas fa-clock"></i>
+                    Timeline
+                </button>
+                <button class="tab-btn">
+                    <i class="fas fa-users"></i>
+                    Line-ups
+                </button>
+            </div>
+            
             <div class="stats-grid">
-                <!-- Possession -->
-                <div class="stat-item">
-                    <div class="stat-label">Possession</div>
-                    <div class="stat-bars">
-                        <div class="team-a">0%</div>
-                        <div class="stat-bar">
-                            <div class="bar-a" style="width: 50%"></div>
-                            <div class="bar-b" style="width: 50%"></div>
+                <div class="stat-card possession">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-futbol"></i>
+                            Ball Possession
+                        </h3>
+                        <div class="card-actions">
+                            <button class="info-btn" title="View possession details">
+                                <i class="fas fa-circle-info"></i>
+                            </button>
                         </div>
-                        <div class="team-b">0%</div>
                     </div>
-                </div>
-                
-                <!-- Shots -->
-                <div class="stat-item">
-                    <div class="stat-label">Shots</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
-                    </div>
-                </div>
-
-                <!-- Shots on Target -->
-                <div class="stat-item">
-                    <div class="stat-label">Shots on Target</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                    <div class="possession-display">
+                        <div class="team-stats">
+                            <span class="value">0%</span>
+                            <div class="bar-container">
+                                <div class="bar team-a-bar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <div class="team-stats">
+                            <span class="value">0%</span>
+                            <div class="bar-container">
+                                <div class="bar team-b-bar" style="width: 50%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Fouls -->
-                <div class="stat-item">
-                    <div class="stat-label">Fouls</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                <div class="stat-card shots">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-bullseye"></i>
+                            Shot Analysis
+                        </h3>
+                        <div class="card-actions">
+                            <button class="info-btn" title="View shot details">
+                                <i class="fas fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="shots-display">
+                        <div class="shots-row">
+                            <span class="label">Total Shots</span>
+                            <div class="values">
+                                <span class="team-a">0</span>
+                                <span class="team-b">0</span>
+                            </div>
+                        </div>
+                        <div class="shots-row">
+                            <span class="label">On Target</span>
+                            <div class="values">
+                                <span class="team-a">0</span>
+                                <span class="team-b">0</span>
+                            </div>
+                        </div>
+                        <div class="shots-row">
+                            <span class="label">Shot Accuracy</span>
+                            <div class="values">
+                                <span class="team-a">0%</span>
+                                <span class="team-b">0%</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Yellow Cards -->
-                <div class="stat-item">
-                    <div class="stat-label">Yellow Cards</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                <div class="stat-card events">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-flag"></i>
+                            Match Events
+                        </h3>
+                        <div class="card-actions">
+                            <button class="info-btn" title="View event details">
+                                <i class="fas fa-circle-info"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="events-grid">
+                        <div class="event-item">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span class="label">Fouls Committed</span>
+                            <div class="values">
+                                <span class="team-a">0</span>
+                                <span class="team-b">0</span>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <i class="fas fa-square yellow-card"></i>
+                            <span class="label">Yellow Cards</span>
+                            <div class="values">
+                                <span class="team-a">0</span>
+                                <span class="team-b">0</span>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <i class="fas fa-square red-card"></i>
+                            <span class="label">Red Cards</span>
+                            <div class="values">
+                                <span class="team-a">0</span>
+                                <span class="team-b">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Red Cards -->
-                <div class="stat-item">
-                    <div class="stat-label">Red Cards</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                <div class="stat-card additional">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fas fa-chart-line"></i>
+                            Match Analysis
+                        </h3>
+                        <div class="card-actions">
+                            <button class="info-btn" title="View analysis details">
+                                <i class="fas fa-circle-info"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Corner Kicks -->
-                <div class="stat-item">
-                    <div class="stat-label">Corner Kicks</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
-                    </div>
-                </div>
-
-                <!-- Offsides -->
-                <div class="stat-item">
-                    <div class="stat-label">Offsides</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                    <div class="additional-stats">
+                        <div class="stat-row">
+                            <span class="label">Corner Kicks</span>
+                            <div class="values">
+                                <span class="team-a">0</span>
+                                <span class="team-b">0</span>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Offsides</span>
+                            <div class="values">
+                                <span class="team-a">0</span>
+                                <span class="team-b">0</span>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Ball Control</span>
+                            <div class="values">
+                                <span class="team-a">0</span>
+                                <span class="team-b">0</span>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="label">Pass Accuracy</span>
+                            <div class="values">
+                                <span class="team-a">0%</span>
+                                <span class="team-b">0%</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
