@@ -42,96 +42,103 @@
             </a>
         </div>
         <section class="stats-section">
-            <div class="stats-header">
-                <h2>Match Statistics</h2>
-                <div class="match-info">
-                    <span class="team-name">Maritime</span>
-                    <span class="vs">vs</span>
-                    <span class="team-name">Earth Science</span>
+            <div class="stats-container">
+                <div class="match-overview">
+                    <div class="team team-a">
+                        <h3>Maritime</h3>
+                        <div class="score">0</div>
+                    </div>
+                    <div class="match-time">
+                        <div class="time">4:30 PM</div>
+                        <div class="date">January 30, 2025</div>
+                        <div class="status">Unity Cup</div>
+                    </div>
+                    <div class="team team-b">
+                        <h3>Earth Science</h3>
+                        <div class="score">0</div>
+                    </div>
                 </div>
-                <div class="match-date">January 30, 2025 - 4:30 PM</div>
-            </div>
-            <div class="stats-grid">
-                <!-- Possession -->
-                <div class="stat-item">
-                    <div class="stat-label">Possession</div>
-                    <div class="stat-bars">
-                        <div class="team-a">0%</div>
-                        <div class="stat-bar">
-                            <div class="bar-a" style="width: 50%"></div>
-                            <div class="bar-b" style="width: 50%"></div>
+
+                <div class="stats-grid">
+                    <!-- Possession -->
+                    <div class="stat-card possession">
+                        <h4>Ball Possession</h4>
+                        <div class="stat-visual">
+                            <div class="possession-bar">
+                                <div class="bar-a" style="width: 50%">0%</div>
+                                <div class="bar-b" style="width: 50%">0%</div>
+                            </div>
                         </div>
-                        <div class="team-b">0%</div>
                     </div>
-                </div>
-                
-                <!-- Shots -->
-                <div class="stat-item">
-                    <div class="stat-label">Shots</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
-                    </div>
-                </div>
 
-                <!-- Shots on Target -->
-                <div class="stat-item">
-                    <div class="stat-label">Shots on Target</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                    <!-- Shots -->
+                    <div class="stat-card">
+                        <h4>Total Shots</h4>
+                        <div class="stat-comparison">
+                            <div class="value team-a">0</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-futbol"></i>
+                            </div>
+                            <div class="value team-b">0</div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Fouls -->
-                <div class="stat-item">
-                    <div class="stat-label">Fouls</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                    <!-- Shots on Target -->
+                    <div class="stat-card">
+                        <h4>Shots on Target</h4>
+                        <div class="stat-comparison">
+                            <div class="value team-a">0</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="value team-b">0</div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Yellow Cards -->
-                <div class="stat-item">
-                    <div class="stat-label">Yellow Cards</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                    <!-- Fouls -->
+                    <div class="stat-card">
+                        <h4>Fouls</h4>
+                        <div class="stat-comparison">
+                            <div class="value team-a">0</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-whistle"></i>
+                            </div>
+                            <div class="value team-b">0</div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Red Cards -->
-                <div class="stat-item">
-                    <div class="stat-label">Red Cards</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                    <!-- Cards -->
+                    <div class="stat-card cards">
+                        <div class="card-stats">
+                            <div class="yellow-cards">
+                                <h4>Yellow Cards</h4>
+                                <div class="stat-comparison">
+                                    <div class="value team-a">0</div>
+                                    <div class="card yellow"></div>
+                                    <div class="value team-b">0</div>
+                                </div>
+                            </div>
+                            <div class="red-cards">
+                                <h4>Red Cards</h4>
+                                <div class="stat-comparison">
+                                    <div class="value team-a">0</div>
+                                    <div class="card red"></div>
+                                    <div class="value team-b">0</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Corner Kicks -->
-                <div class="stat-item">
-                    <div class="stat-label">Corner Kicks</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
-                    </div>
-                </div>
-
-                <!-- Offsides -->
-                <div class="stat-item">
-                    <div class="stat-label">Offsides</div>
-                    <div class="stat-numbers">
-                        <span class="team-a">0</span>
-                        <span class="stat-divider">-</span>
-                        <span class="team-b">0</span>
+                    <!-- Corner Kicks -->
+                    <div class="stat-card">
+                        <h4>Corner Kicks</h4>
+                        <div class="stat-comparison">
+                            <div class="value team-a">0</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-flag-checkered"></i>
+                            </div>
+                            <div class="value team-b">0</div>
+                        </div>
                     </div>
                 </div>
             </div>
