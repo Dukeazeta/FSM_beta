@@ -5,6 +5,8 @@
     margin: 0 auto;
     padding: 0 var(--container-padding);
     padding-top: calc(var(--navbar-height) + 2rem); /* Add this line */
+    position: relative;
+    z-index: 1;
 }
 
 .football-content h1 {
@@ -151,27 +153,36 @@
 }
 
 .match-item {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 0.75rem;
-    margin-bottom: 0.75rem;
-    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 179, 0, 0.1);
+}
+
+.match-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(0, 179, 0, 0.15);
 }
 
 .match-date {
-    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-    color: rgba(255, 255, 255, 0.9); /* Slightly off-white for better contrast */
-    margin-bottom: 0.5rem;
-    text-align: center; /* Center-align the date and time */
+    font-size: 1.1rem;
+    color: var(--football-accent);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 500;
 }
 
 .match-teams {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1rem 0;
 }
 
 .team {
@@ -277,6 +288,8 @@
 }
 
 .view-more-btn {
+    position: relative;
+    z-index: 15;
     background-color: var(--clr-dark);
     color: var(--clr-light);
     border: 2px solid var(--football-accent);
@@ -507,7 +520,10 @@ a:hover {
 
 /* Buttons (if any) */
 .btn-secondary,
+.view-button,
 .view-more-btn {
+    position: relative;
+    z-index: 15;
     display: inline-block;
     padding: 0.75rem 2rem;
     font-size: var(--font-size-base);
@@ -524,6 +540,7 @@ a:hover {
 }
 
 .btn-secondary:hover,
+.view-button:hover,
 .view-more-btn:hover {
     background-color: var(--football-accent-dark);
     transform: translateY(-2px);
@@ -531,6 +548,7 @@ a:hover {
 }
 
 .btn-secondary:active,
+.view-button:active,
 .view-more-btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(0, 179, 0, 0.1);
@@ -583,6 +601,8 @@ a:hover {
 .btn-secondary,
 .view-button,
 .view-more-btn {
+    position: relative;
+    z-index: 15;
     display: inline-block;
     padding: 0.75rem 2rem;
     font-size: var(--font-size-base);
@@ -697,44 +717,45 @@ a:hover {
 
 /* VC Cup Page Styles */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('../assets/football-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 400px;
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    overflow: hidden;
 }
 
 .today-matches {
+    position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 20;
 }
 
 .today-matches h2 {
-    color: #fff;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    color: var(--clr-light);
+    font-size: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
     font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .match-card {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 2rem;
-    border-radius: 10px;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background: rgba(0, 25, 0, 0.7);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 179, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 179, 0, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-width: 600px;
+    z-index: 25;
 }
 
 .match-time {
@@ -743,7 +764,7 @@ a:hover {
     color: var(--football-accent);
     text-align: center;
     margin-bottom: 1.5rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .match-teams {
@@ -983,7 +1004,7 @@ a:hover {
     font-weight: bold;
     color: var(--football-accent);
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -992,8 +1013,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin: 1.5rem 0;
-    font-size: 1.5rem;
+    margin: 2rem 0;
 }
 
 .match-teams .team {
@@ -1279,4 +1299,217 @@ a:hover {
     .hero-content p {
         font-size: 0.9rem;
     }
+}
+
+/* Match Display Styles */
+.match-display {
+    position: relative;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 179, 0, 0.1);
+    border: 1px solid rgba(0, 179, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.match-title {
+    color: var(--clr-light);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.match-time {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--football-accent);
+    text-align: center;
+    margin: 1.5rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.team {
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.team:hover {
+    transform: translateY(-5px);
+}
+
+.vs {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--clr-light);
+    opacity: 0.8;
+}
+
+.match-venue {
+    text-align: center;
+    color: var(--clr-light);
+    opacity: 0.8;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.match-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.match-actions .btn-secondary {
+    min-width: 120px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.team {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--clr-light);
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.vs {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--football-accent);
+}
+
+.match-venue {
+    text-align: center;
+    color: var(--clr-light);
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 1rem 0;
+}
+
+.match-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 30;
+}
+
+.match-meta .btn-secondary,
+.match-meta .match-tag {
+    position: relative;
+    z-index: 35;
+    pointer-events: auto;
+    cursor: pointer;
+    min-width: 120px;
+    text-align: center;
+}
+
+.match-tag.Unity {
+    background: var(--football-accent);
+    color: var(--clr-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.match-tag.Unity:hover {
+    background: var(--football-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 179, 0, 0.2);
+}
+
+/* Critical Interaction Styles */
+.hero *,
+.match-card *,
+.match-meta * {
+    pointer-events: auto;
+}
+
+.hero {
+    pointer-events: none;
+}
+
+.btn-secondary,
+.match-tag,
+.view-button,
+.match-meta a,
+.match-meta button {
+    position: relative;
+    z-index: 35;
+    pointer-events: auto !important;
+    cursor: pointer;
+}
+
+/* Remove any overlays that might block interaction */
+.hero::before,
+.hero::after,
+.match-card::before,
+.match-card::after {
+    display: none !important;
+}
+
+/* Ensure proper stacking context */
+.football-content {
+    position: relative;
+    z-index: 10;
+}
+
+.today-matches {
+    position: relative;
+    z-index: 20;
+}
+
+.match-card {
+    position: relative;
+    z-index: 25;
+}
+
+.match-meta {
+    position: relative;
+    z-index: 30;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 1000;
 }
